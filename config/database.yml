@@ -23,5 +23,8 @@ test:
 
 production:
   <<: *default
-  database: ayya
-  username: postgres
+  hots: ec2-54-225-195-249.compute-1.amazonaws.com
+  port: 5432
+  database: d1e7kt6hblovqi
+  username: miembnsivsuefq
+  password: 4vwklQNO3ADONxK-oyNrmJreYG
