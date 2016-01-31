@@ -23,7 +23,7 @@ test:
 
 production:
   <<: *default
-  hots: ec2-54-225-195-249.compute-1.amazonaws.com
+  host: ec2-54-225-195-249.compute-1.amazonaws.com
   port: 5432
   database: d1e7kt6hblovqi
   username: miembnsivsuefq
