@@ -14,7 +14,7 @@ ActiveAdmin.register Testimonial do
 
   form do |f|
     f.semantic_errors
-    f.inputs "Label" do
+    f.inputs "Testimonial" do
       f.input :name
       f.input :village
       f.input :text

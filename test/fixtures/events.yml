@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  date: 2016-02-01 21:44:54
+  tamil_month: MyString
+  : MyString
+  tamil_date: 1
+
+two:
+  name: MyString
+  description: MyText
+  date: 2016-02-01 21:44:54
+  tamil_month: MyString
+  : MyString
+  tamil_date: 1

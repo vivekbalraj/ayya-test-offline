@@ -22,5 +22,18 @@ module AyyaBe
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    # Enable the asset pipeline
+    config.assets.enabled = false
+
+    # Configure the default encoding used in templates for Ruby 1.9.
+    config.encoding = 'utf-8'
+
+    config.middleware.use Rack::Cors do
+      allow do
+        origins "*"
+        resource "*", headers: :any, methods: [:get, :post, :put, :delete, :options]
+      end
+    end
   end
 end
