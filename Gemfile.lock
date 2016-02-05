@@ -22,6 +22,7 @@ GEM
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
     active_model_serializers (0.9.4)
       activemodel (>= 3.2)
+    active_skin (0.0.12)
     activeadmin (1.0.0.pre1)
       arbre (~> 1.0, >= 1.0.2)
       bourbon
@@ -127,9 +128,6 @@ GEM
     jquery-ui-rails (5.0.3)
       railties (>= 3.2.16)
     json (1.8.3)
-    just-datetime-picker (0.0.6)
-      activeadmin (>= 0.4.4)
-      formtastic (>= 2.0.0)
     kaminari (0.16.3)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -146,6 +144,8 @@ GEM
       mini_portile2 (~> 2.0.0.rc2)
     orm_adapter (0.5.0)
     pg (0.18.4)
+    pickadate-rails (3.5.6.0)
+      railties (>= 3.1.0)
     polyamorous (1.2.0)
       activerecord (>= 3.0)
     rack (1.6.4)
@@ -228,14 +228,15 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_skin
   activeadmin
   byebug
   devise
   grape
   grape-active_model_serializers
   hashie-forbidden_attributes
-  just-datetime-picker
   pg
+  pickadate-rails
   rack-cors
   rails (= 4.2.5.1)
   spring

@@ -17,7 +17,7 @@ permit_params :name, :description, :date, :tamil_month, :tamil_date
     f.inputs "Event" do
       f.input :name
       f.input :description
-      f.input :date, :as => :just_datetime_picker
+      f.input :date, as: :string
       f.input :tamil_month, :as => :select, :collection => ["சித்திரை", "வைகாசி", "ஆனி", "ஆடி", "ஆவணி", "புரட்டாசி", "ஐப்பசி", "கார்த்திகை", "மார்கழி", "தை", "மாசி", "பங்குனி"]
       f.input :tamil_date, :in => 1..31
     end

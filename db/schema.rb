@@ -16,21 +16,6 @@ ActiveRecord::Schema.define(version: 20160201161454) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "active_admin_comments", force: :cascade do |t|
-    t.string   "namespace"
-    t.text     "body"
-    t.string   "resource_id",   null: false
-    t.string   "resource_type", null: false
-    t.integer  "author_id"
-    t.string   "author_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
-  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
-  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
-
   create_table "admin_users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -52,7 +37,7 @@ ActiveRecord::Schema.define(version: 20160201161454) do
   create_table "events", force: :cascade do |t|
     t.string   "name",        null: false
     t.text     "description"
-    t.datetime "date",        null: false
+    t.date     "date",        null: false
     t.string   "tamil_month"
     t.integer  "tamil_date"
     t.datetime "created_at",  null: false
@@ -60,19 +45,19 @@ ActiveRecord::Schema.define(version: 20160201161454) do
   end
 
   create_table "temples", force: :cascade do |t|
-    t.string   "name"
+    t.string   "name",                                                      null: false
     t.text     "information"
-    t.datetime "created_at",                                                null: false
-    t.datetime "updated_at",                                                null: false
     t.string   "temple_type",                           default: "Thangal", null: false
     t.string   "village"
     t.decimal  "latitude",    precision: 15, scale: 13
     t.decimal  "longitude",   precision: 15, scale: 13
+    t.datetime "created_at",                                                null: false
+    t.datetime "updated_at",                                                null: false
   end
 
   create_table "testimonials", force: :cascade do |t|
-    t.string   "name"
-    t.text     "text"
+    t.string   "name",       null: false
+    t.text     "text",       null: false
     t.string   "village"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -3,7 +3,7 @@ class CreateEvents < ActiveRecord::Migration
     create_table :events do |t|
       t.string :name, null: false
       t.text :description
-      t.datetime :date, null: false
+      t.date :date, null: false
       t.string :tamil_month
       t.integer :tamil_date
 

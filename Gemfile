@@ -10,7 +10,8 @@ gem 'turbolinks'
 
 gem 'activeadmin'
 gem 'devise'
-gem 'just-datetime-picker'
+gem 'pickadate-rails'
+gem 'active_skin'
 
 gem 'grape'
 gem 'hashie-forbidden_attributes'
