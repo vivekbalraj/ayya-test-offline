@@ -5,6 +5,7 @@ class CreateTemples < ActiveRecord::Migration
       t.text :information
       t.string :temple_type, :default => "Thangal", :null => false
       t.string :village
+      t.string :district
       t.decimal :latitude, :precision => 15, :scale => 13
       t.decimal :longitude, :precision => 15, :scale => 13
 

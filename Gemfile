@@ -18,6 +18,8 @@ gem 'hashie-forbidden_attributes'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'grape-active_model_serializers'
 
+gem 'gcm'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

@@ -4,6 +4,7 @@ module API
       mount API::V1::Temples
       mount API::V1::Events
       mount API::V1::Testimonials
+      mount API::V1::Devices
     end
   end
 end

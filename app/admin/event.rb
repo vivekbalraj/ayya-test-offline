@@ -1,6 +1,6 @@
 ActiveAdmin.register Event do
 
-permit_params :name, :description, :date, :tamil_month, :tamil_date
+  permit_params :name, :description, :date, :tamil_month, :tamil_date
 
   index do
     id_column
