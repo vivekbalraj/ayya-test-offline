@@ -19,6 +19,7 @@ gem 'rack-cors', :require => 'rack/cors'
 gem 'grape-active_model_serializers'
 
 gem 'gcm'
+gem 'rails_12factor'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

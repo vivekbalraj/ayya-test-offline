@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160206035506) do
+ActiveRecord::Schema.define(version: 20160224122314) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,7 +50,10 @@ ActiveRecord::Schema.define(version: 20160206035506) do
     t.integer  "tamil_date"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "temple_id"
   end
+
+  add_index "events", ["temple_id"], name: "index_events_on_temple_id", using: :btree
 
   create_table "temples", force: :cascade do |t|
     t.string   "name",                                                      null: false
@@ -72,4 +75,5 @@ ActiveRecord::Schema.define(version: 20160206035506) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "events", "temples"
 end

@@ -23,7 +23,7 @@ ActiveAdmin.register Temple do
       f.input :temple_type, :as => :select, :collection => ["Pathi", "Thangal"], :include_blank => false
       f.input :information
       f.input :village
-      f.input :district, :as => :select, :collection => ["Ariyalur", "Chennai", "Coimbatore", "Cuddalore", "Dharmapuri", "Dindigul", "Erode", "Kanchipuram", "Kanniyakumari", "Karur", "Krishnagiri", "Madurai", "Nagapattinam", "Namakkal", "Perambalur", "Pudukottai", "Ramanathapuram", "Salem", "Sivagangai", "Thanjavur", "Theni", "The Nilgiris", "Thirunelveli", "Thiruvallur", "Thiruvannamalai", "Thiruvarur", "Thoothukudi", "Tiruchirapalli", "Tiruppur", "Vellore", "Villupuram", "Virudhunagar"], :include_blank => false
+      f.input :district, :as => :select, :collection => ["அரியலூர்", "சென்னை", "கோயம்புத்தூர்", "கடலூர்", "தர்மபுரி", "திண்டுக்கல்", "ஈரோடு", "காஞ்சிபுரம்", "கன்னியாகுமரி", "கரூர்", "கிருஷ்ணகிரி", "மதுரை", "நாகப்பட்டினம்", "நாமக்கல்", "பெரம்பலூர்", "புதுக்கோட்டை", "இராமநாதபுரம்", "சேலம்", "சிவகங்கை", "தஞ்சாவூர்", "தேனி", "நீலகிரி", "திருநெல்வேலி", "திருவள்ளூர்", "திருவண்ணாமலை", "திருவாரூர்", "தூத்துக்குடி", "திருச்சிராப்பள்ளி", "திருப்பூர்", "வேலூர்", "விழுப்புரம்", "விருதுநகர்"], :include_blank => false
       f.input :latitude
       f.input :longitude
     end
