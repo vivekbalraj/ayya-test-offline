@@ -2,10 +2,14 @@ ActiveAdmin.register Event do
 
   permit_params :name, :description, :date, :tamil_month, :tamil_date, :temple
 
+  filter :temple
+  filter :date
+  filter :tamil_month, :as => :select, :collection => ["சித்திரை", "வைகாசி", "ஆனி", "ஆடி", "ஆவணி", "புரட்டாசி", "ஐப்பசி", "கார்த்திகை", "மார்கழி", "தை", "மாசி", "பங்குனி"]
+  filter :tamil_date, :in => 1..31
+
   index do
     id_column
     column :name
-    column :description
     column :date
     column :tamil_month
     column :tamil_date
