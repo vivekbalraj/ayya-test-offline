@@ -8,7 +8,6 @@ ActiveAdmin.register Temple do
     id_column
     column :name
     column :temple_type
-    column :information
     column :village
     column :district
     column :latitude
