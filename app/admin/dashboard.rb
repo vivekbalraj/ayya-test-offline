@@ -6,6 +6,18 @@ ActiveAdmin.register_page "Dashboard" do
 
     columns do
       column do
+        panel "Upcoming Events" do
+          table_for Event.where("date >= :d", d:Date.today).order('date asc').limit(10) do
+            column("name")
+            column("date")
+            column("temple_id") {|temple| link_to(temple.name, admin_temple_path(temple)) }
+          end
+        end
+      end
+    end
+
+    columns do
+      column do
         panel "Recent Testimonials" do
           ul do
             Testimonial.last(5).map do |testimonial|
@@ -17,11 +29,5 @@ ActiveAdmin.register_page "Dashboard" do
       end
     end
 
-    #   column do
-    #     panel "Info" do
-    #       para "Welcome to ActiveAdmin."
-    #     end
-    #   end
-    # end
   end # content
 end

@@ -6,7 +6,7 @@ module API
       resource :events do
         desc "Return all events"
         get "", root: :events do
-          Event.all
+          Event.all.includes(:temple).as_json(include: :temple)
         end
       end
     end
