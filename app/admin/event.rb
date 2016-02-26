@@ -1,6 +1,6 @@
 ActiveAdmin.register Event do
 
-  permit_params :name, :description, :date, :tamil_month, :tamil_date, :temple
+  permit_params :name, :description, :date, :tamil_month, :tamil_date, :temple_id
 
   filter :temple
   filter :date
