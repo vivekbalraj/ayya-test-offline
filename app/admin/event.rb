@@ -21,11 +21,11 @@ ActiveAdmin.register Event do
     f.semantic_errors
     f.inputs "Event" do
       f.input :name
-      f.input :description
-      f.input :date, as: :string
       f.input :temple
-      f.input :tamil_month, :as => :select, :collection => ["சித்திரை", "வைகாசி", "ஆனி", "ஆடி", "ஆவணி", "புரட்டாசி", "ஐப்பசி", "கார்த்திகை", "மார்கழி", "தை", "மாசி", "பங்குனி"]
+      f.input :date, as: :string
       f.input :tamil_date, :in => 1..31
+      f.input :tamil_month, :as => :select, :collection => ["சித்திரை", "வைகாசி", "ஆனி", "ஆடி", "ஆவணி", "புரட்டாசி", "ஐப்பசி", "கார்த்திகை", "மார்கழி", "தை", "மாசி", "பங்குனி"]
+      f.input :description
     end
     f.actions
   end
