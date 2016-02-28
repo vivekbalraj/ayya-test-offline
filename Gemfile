@@ -20,6 +20,7 @@ gem 'grape-active_model_serializers'
 
 gem 'gcm'
 gem 'rails_12factor'
+gem 'paperclip', "~> 4.3"
 
 # Use Unicorn as the app server
 # gem 'unicorn'

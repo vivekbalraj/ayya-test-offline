@@ -1,6 +1,6 @@
 ActiveAdmin.register Temple do
 
-  permit_params :name, :temple_type, :information, :village, :latitude, :longitude, :district, :founded_at, :contact_person, :country, :state, :taluk, :pincode, :street_address
+  permit_params :name, :temple_type, :information, :village, :latitude, :longitude, :district, :founded_at, :contact_person, :country, :state, :taluk, :pincode, :street_address, :img1, :img2, :img3
 
   filter :temple_type, :as => :select, :collection => ["Pathi", "Thangal"]
   filter :district, :as => :select, :collection => ["அரியலூர்", "சென்னை", "கோயம்புத்தூர்", "கடலூர்", "தர்மபுரி", "திண்டுக்கல்", "ஈரோடு", "காஞ்சிபுரம்", "கன்னியாகுமரி", "கரூர்", "கிருஷ்ணகிரி", "மதுரை", "நாகப்பட்டினம்", "நாமக்கல்", "பெரம்பலூர்", "புதுக்கோட்டை", "இராமநாதபுரம்", "சேலம்", "சிவகங்கை", "தஞ்சாவூர்", "தேனி", "நீலகிரி", "திருநெல்வேலி", "திருவள்ளூர்", "திருவண்ணாமலை", "திருவாரூர்", "தூத்துக்குடி", "திருச்சிராப்பள்ளி", "திருப்பூர்", "வேலூர்", "விழுப்புரம்", "விருதுநகர்"]
@@ -35,6 +35,9 @@ ActiveAdmin.register Temple do
       f.input :longitude
       f.input :pincode
       f.input :street_address
+      f.input :img1, :as => :file, :hint => image_tag(f.object.img1.url)
+      f.input :img2, :as => :file, :hint => image_tag(f.object.img2.url)
+      f.input :img3, :as => :file, :hint => image_tag(f.object.img3.url)
     end
     f.actions
   end
