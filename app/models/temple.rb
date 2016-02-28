@@ -3,4 +3,5 @@ class Temple < ActiveRecord::Base
 
   has_many :events
   has_many :cars
+  has_one :address
 end

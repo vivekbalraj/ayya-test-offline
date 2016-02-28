@@ -11,10 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160228123500) do
+ActiveRecord::Schema.define(version: 20160228131047) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "addresses", force: :cascade do |t|
+    t.string   "contact_person"
+    t.string   "country",                                  null: false
+    t.string   "state",                                    null: false
+    t.string   "district",                                 null: false
+    t.string   "taluk"
+    t.string   "village"
+    t.integer  "pincode"
+    t.text     "street_address"
+    t.decimal  "latitude",       precision: 15, scale: 13
+    t.decimal  "longitude",      precision: 15, scale: 13
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+  end
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -76,6 +91,12 @@ ActiveRecord::Schema.define(version: 20160228123500) do
     t.datetime "updated_at",                                                       null: false
     t.string   "founded_at"
     t.integer  "running_generation"
+    t.string   "contact_person"
+    t.string   "country"
+    t.string   "state"
+    t.string   "taluk"
+    t.integer  "pincode"
+    t.text     "street_address"
   end
 
   create_table "testimonials", force: :cascade do |t|
