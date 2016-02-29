@@ -8,13 +8,16 @@ class Temple < ActiveRecord::Base
   has_many :cars
   has_one :address
 
-  has_attached_file :img1, styles: { medium: "1024x1024>", thumb: "100x100>" }
+  has_attached_file :img1, styles: { medium: "1024x1024>", thumb: "100x100>" }, :storage => :dropbox,
+    :dropbox_credentials => Rails.root.join("config/dropbox.yml"), :dropbox_visibility => 'public'
   validates_attachment_content_type :img1, content_type: /\Aimage\/.*\Z/
 
-  has_attached_file :img2, styles: { medium: "1024x1024>", thumb: "100x100>" }
+  has_attached_file :img2, styles: { medium: "1024x1024>", thumb: "100x100>" }, :storage => :dropbox,
+    :dropbox_credentials => Rails.root.join("config/dropbox.yml"), :dropbox_visibility => 'public'
   validates_attachment_content_type :img2, content_type: /\Aimage\/.*\Z/
 
-  has_attached_file :img3, styles: { medium: "1024x1024>", thumb: "100x100>" }
+  has_attached_file :img3, styles: { medium: "1024x1024>", thumb: "100x100>" }, :storage => :dropbox,
+    :dropbox_credentials => Rails.root.join("config/dropbox.yml"), :dropbox_visibility => 'public'
   validates_attachment_content_type :img3, content_type: /\Aimage\/.*\Z/
 
   def images
