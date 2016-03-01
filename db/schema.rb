@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160228161555) do
+ActiveRecord::Schema.define(version: 20160301121323) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,7 +90,6 @@ ActiveRecord::Schema.define(version: 20160228161555) do
     t.datetime "created_at",                                                       null: false
     t.datetime "updated_at",                                                       null: false
     t.string   "founded_at"
-    t.integer  "running_generation"
     t.string   "contact_person"
     t.string   "country"
     t.string   "state"
@@ -109,6 +108,8 @@ ActiveRecord::Schema.define(version: 20160228161555) do
     t.string   "img3_content_type"
     t.integer  "img3_file_size"
     t.datetime "img3_updated_at"
+    t.boolean  "is_primary_thangal",                           default: false
+    t.boolean  "is_book_read",                                 default: false
   end
 
   create_table "testimonials", force: :cascade do |t|
