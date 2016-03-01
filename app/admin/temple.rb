@@ -1,6 +1,6 @@
 ActiveAdmin.register Temple do
 
-  permit_params :name, :temple_type, :information, :village, :latitude, :longitude, :district, :founded_at, :contact_person, :country, :state, :taluk, :pincode, :street_address, :img1, :img2, :img3
+  permit_params :name, :temple_type, :information, :village, :latitude, :longitude, :district, :founded_at, :contact_person, :country, :state, :taluk, :pincode, :street_address, :img1, :img2, :img3, :is_primary_thangal, :is_book_read
 
   filter :temple_type, :as => :select, :collection => ["Pathi", "Thangal"]
   filter :district, :as => :select
