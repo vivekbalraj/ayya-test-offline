@@ -22,6 +22,7 @@ gem 'gcm'
 gem 'rails_12factor'
 gem 'paperclip', '~> 4.3'
 gem 'paperclip-dropbox', '>= 1.1.7'
+gem 'newrelic_rpm'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
