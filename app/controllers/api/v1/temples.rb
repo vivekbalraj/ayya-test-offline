@@ -6,7 +6,7 @@ module API
       resource :temples do
         desc "Return all temples"
         get "", root: :temples do
-          Temple.all.includes(:events).as_json(include: :events, :methods => [:images])
+          Temple.where(is_published: true).includes(:events).as_json(include: :events, :methods => [:images])
         end
 
         desc "Return a temple"

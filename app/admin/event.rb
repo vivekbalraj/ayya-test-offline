@@ -4,7 +4,7 @@ ActiveAdmin.register Event do
 
   filter :temple
   filter :date
-  filter :tamil_month, :as => :select, :collection => ["சித்திரை", "வைகாசி", "ஆனி", "ஆடி", "ஆவணி", "புரட்டாசி", "ஐப்பசி", "கார்த்திகை", "மார்கழி", "தை", "மாசி", "பங்குனி"]
+  filter :tamil_month, :as => :select
   filter :tamil_date, :in => 1..31
 
   index do

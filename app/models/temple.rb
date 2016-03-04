@@ -3,10 +3,9 @@ class Temple < ActiveRecord::Base
   validates_with AttachmentSizeValidator, attributes: :img1, less_than: 1.megabytes
   validates_with AttachmentSizeValidator, attributes: :img2, less_than: 1.megabytes
   validates_with AttachmentSizeValidator, attributes: :img3, less_than: 1.megabytes
+  # validates :mobile_number, :numericality => true, :length => { :minimum => 10, :maximum => 15 }
 
   has_many :events
-  has_many :cars
-  has_one :address
 
   has_attached_file :img1, styles: { medium: "1024x1024>", thumb: "100x100>" }, :storage => :dropbox,
     :dropbox_credentials => Rails.root.join("config/dropbox.yml"), :dropbox_visibility => 'public'
