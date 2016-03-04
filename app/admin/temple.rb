@@ -17,7 +17,6 @@ ActiveAdmin.register Temple do
     column :latitude
     column :longitude
     column :founded_at
-    column :is_primary_thangal
     column :is_published
     column :mobile_number
     actions
