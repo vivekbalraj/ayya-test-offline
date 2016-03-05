@@ -6,7 +6,7 @@ module API
       resource :devices do
         desc "create a device"
         post do
-          Device.create(token: params[:token], platform: params[:platform])
+          Device.find_or_create_by(token: params[:token], platform: params[:platform])
         end
       end
 
