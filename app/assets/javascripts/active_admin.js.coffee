@@ -5,4 +5,5 @@
 
 $(document).ready ->
   $('#event_date').pickadate()
+  $('#notification_date').pickadate()
   return

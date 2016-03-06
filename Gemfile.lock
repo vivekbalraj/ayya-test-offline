@@ -264,6 +264,7 @@ DEPENDENCIES
   grape
   grape-active_model_serializers
   hashie-forbidden_attributes
+  kaminari
   newrelic_rpm
   paperclip (~> 4.3)
   paperclip-dropbox (>= 1.1.7)

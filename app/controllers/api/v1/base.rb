@@ -5,6 +5,7 @@ module API
       mount API::V1::Events
       mount API::V1::Testimonials
       mount API::V1::Devices
+      mount API::V1::Notifications
     end
   end
 end

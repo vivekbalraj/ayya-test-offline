@@ -13,10 +13,14 @@ module API
       resource :devices do
         get do
           gcm = GCM.new("AIzaSyDi8ducYJNid4NQUKm04HzmDrdScGqO1NE")
-          registration_id = ["f-Adoej4whY:APA91bFe0t2VOE9MkEwidKLn6i80fFrImyszeQcSvyv_y52hsSJjuzFCbwV133IvnNxey6f9dYTTYvrqOjHdd2rpQhSNS1fzrwWvkoewHD-we3jOY65tBFuJkgDTMweGEBUOdndBTdob"]
+          registration_id = Device.all().map(&:token)
           options = {
             "data" => {
-              "message" => "hello"
+              "message" => "அய்யா வைகுண்டர்",
+              "summaryText" => "அய்யா வைகுண்டர்",
+              "title" => "அய்யா 1008",
+              "style" => "picture",
+              "picture" => "http://36.media.tumblr.com/c066cc2238103856c9ac506faa6f3bc2/tumblr_nmstmqtuo81tssmyno1_1280.jpg"
             },
             "collapse_key" => "updated_state"
           }
