@@ -3,7 +3,6 @@ class Temple < ActiveRecord::Base
   validates_with AttachmentSizeValidator, attributes: :img1, less_than: 1.megabytes
   validates_with AttachmentSizeValidator, attributes: :img2, less_than: 1.megabytes
   validates_with AttachmentSizeValidator, attributes: :img3, less_than: 1.megabytes
-  # validates :mobile_number, :numericality => true, :length => { :minimum => 10, :maximum => 15 }
 
   has_many :events
 

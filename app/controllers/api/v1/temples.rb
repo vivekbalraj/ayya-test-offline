@@ -9,6 +9,11 @@ module API
           Temple.where(is_published: true).includes(:events).as_json(include: :events, :methods => [:images])
         end
 
+        desc "Return by temple types"
+        get "/type", root: :temples do
+          Temple.where(is_published: true, temple_type: params[:temple_type]).includes(:events).as_json(include: :events, :methods => [:images])
+        end
+
         desc "Return a temple"
         params do
           requires :id, type: String, desc: "ID of the temple"
