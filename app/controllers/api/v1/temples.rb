@@ -10,8 +10,20 @@ module API
         end
 
         desc "Return by temple types"
+        params do
+          requires :temple_type, type: String, desc: "type of the temple"
+        end
         get "/type", root: :temples do
           Temple.where(is_published: true, temple_type: params[:temple_type]).includes(:events).as_json(include: :events, :methods => [:images])
+        end
+
+        desc "Return temples by district"
+        params do
+          requires :temple_type, type: String, desc: "type of the temple"
+          requires :district, type: String, desc: "district of the temple"
+        end
+        get "/district", root: :temples do
+          Temple.where(is_published: true, temple_type: params[:temple_type], district: params[:district]).includes(:events).as_json(include: :events, :methods => [:images])
         end
 
         desc "Return all districts in which temples are present"
