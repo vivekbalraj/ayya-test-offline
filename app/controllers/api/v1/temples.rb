@@ -14,6 +14,11 @@ module API
           Temple.where(is_published: true, temple_type: params[:temple_type]).includes(:events).as_json(include: :events, :methods => [:images])
         end
 
+        desc "Return all districts in which temples are present"
+        get "/districts", root: :temples do
+          Temple.uniq.pluck(:district)
+        end
+
         desc "Return a temple"
         params do
           requires :id, type: String, desc: "ID of the temple"
