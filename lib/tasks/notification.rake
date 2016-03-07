@@ -18,7 +18,8 @@ namespace :notification do
       options[:data][:picture] = notification.picture.url
     end
     response = gcm.send_notification(registration_id, options)
-    p response[:not_registered_ids]
+    notification.is_published = true;
+    notification.save
     Device.where(token: response[:not_registered_ids]).destroy_all
   end
 
