@@ -39,6 +39,13 @@ module API
           Temple.where(id: permitted_params[:id]).first!
         end
       end
+
+      resource :temples do
+        desc "create a temple"
+        post do
+          Temple.create(name: params[:name], founded_at: params[:founded_at], book_month: params[:book_month], contact_person: params[:contact_person], mobile_number: params[:mobile_number], village: params[:village], taluk: params[:taluk], district: params[:district], latitude: params[:latitude], longitude: params[:longitude], pincode: params[:pincode], street_address: params[:street_address], information: params[:information])
+        end
+      end
     end
   end
 end
