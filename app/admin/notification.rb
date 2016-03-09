@@ -4,6 +4,16 @@ ActiveAdmin.register Notification do
 
   config.clear_sidebar_sections!
 
+  index do
+    id_column
+    column :message
+    column :title
+    column :picture_file_name
+    column :is_published
+    column :date
+    actions
+  end
+
   form do |f|
     f.semantic_errors
     f.inputs "Notification" do
