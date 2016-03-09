@@ -1,6 +1,6 @@
 ActiveAdmin.register Temple do
 
-  permit_params :name, :temple_type, :information, :village, :latitude, :longitude, :district, :founded_at, :contact_person, :country, :state, :taluk, :pincode, :street_address, :img1, :img2, :img3, :is_primary_thangal, :is_book_read, :is_published, :book_month, :mobile_number
+  permit_params :name, :temple_type, :information, :village, :latitude, :longitude, :district, :founded_at, :contact_person, :country, :state, :taluk, :pincode, :street_address, :img1, :img2, :img3, :is_primary_thangal, :is_book_read, :is_published, :book_month, :mobile_number, :priest_name, :facebook_page_url
 
   filter :temple_type, :as => :select, :collection => ["Pathi", "Thangal"]
   filter :district, :as => :select
@@ -33,6 +33,8 @@ ActiveAdmin.register Temple do
       f.input :is_book_read
       f.input :information
       f.input :book_month, :as => :select, :collection => ["சித்திரை", "வைகாசி", "ஆனி", "ஆடி", "ஆவணி", "புரட்டாசி", "ஐப்பசி", "கார்த்திகை", "மார்கழி", "தை", "மாசி", "பங்குனி"], :include_blank => true
+      f.input :priest_name
+      f.input :facebook_page_url
       f.input :contact_person
       f.input :mobile_number
       f.input :village
