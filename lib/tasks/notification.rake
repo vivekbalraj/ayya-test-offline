@@ -6,6 +6,7 @@ namespace :notification do
     notification = Notification.today.first
     options = {
       "collapse_key" => "updated_state",
+      "delay_while_idle" => true,
       :data => {
         "message" => notification.message,
         "summaryText" => notification.message,
