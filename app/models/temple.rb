@@ -21,4 +21,10 @@ class Temple < ActiveRecord::Base
   def images
     [img1.url(:medium), img2.url(:medium), img3.url(:medium)]
   end
+
+  after_save :clear_cache
+
+  def clear_cache
+    $redis.del "temples"
+  end
 end

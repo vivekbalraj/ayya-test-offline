@@ -25,6 +25,8 @@ gem 'paperclip-dropbox', '>= 1.1.7'
 gem 'newrelic_rpm'
 gem 'kaminari'
 
+gem 'redis'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

@@ -6,7 +6,13 @@ module API
       resource :temples do
         desc "Return all temples"
         get "", root: :temples do
-          Temple.where(is_published: true).includes(:events).as_json(include: :events, :methods => [:images])
+          # temples = $redis.get("temples")
+          # if temples.nil?
+            temples = Temple.select('id, name, information, temple_type, village, district, latitude, longitude, founded_at, contact_person, country, state, taluk, pincode, street_address, is_primary_thangal, is_book_read, mobile_number, book_month, is_published, priest_name, facebook_page_url, img1_file_name, img2_file_name, img3_file_name').where(is_published: true).includes(:events).as_json(include: :events, :methods => [:images])
+            # $redis.set("temples", temples)
+            # temples.as_json
+          # end
+          # temples.as_json
         end
 
         desc "Return by temple types"
