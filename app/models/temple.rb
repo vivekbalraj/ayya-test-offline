@@ -19,16 +19,17 @@ class Temple < ActiveRecord::Base
   validates_attachment_content_type :img3, content_type: /\Aimage\/.*\Z/
 
   def images
-    # images = $redis.get("images"+id.to_s)
-    # if images.nil?
+    images = $redis.get("images"+id.to_s)
+    if images.nil?
       images = [img1.url(:medium), img2.url(:medium), img3.url(:medium)]
-      # $redis.set("images"+id.to_s, images)
-      # return images
-    # end
-    # images[1..images.length-2].split(',').map do |text|
-      # text = text.squish
-      # text = text[1..text.length-2]
-    # end
+      $redis.set("images"+id.to_s, images)
+      $redis.expire("images"+id.to_s, 3.hour.to_i)
+      return images
+    end
+    images[1..images.length-2].split(',').map do |text|
+      text = text.squish
+      text = text[1..text.length-2]
+    end
   end
 
   after_save :clear_cache
