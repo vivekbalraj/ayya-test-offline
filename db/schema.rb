@@ -11,25 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160309031142) do
+ActiveRecord::Schema.define(version: 20160320182211) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "addresses", force: :cascade do |t|
-    t.string   "contact_person"
-    t.string   "country",                                  null: false
-    t.string   "state",                                    null: false
-    t.string   "district",                                 null: false
-    t.string   "taluk"
-    t.string   "village"
-    t.integer  "pincode"
-    t.text     "street_address"
-    t.decimal  "latitude",       precision: 15, scale: 13
-    t.decimal  "longitude",      precision: 15, scale: 13
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
-  end
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -53,15 +38,13 @@ ActiveRecord::Schema.define(version: 20160309031142) do
     t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "temple_id"
   end
-
-  add_index "cars", ["temple_id"], name: "index_cars_on_temple_id", using: :btree
 
   create_table "devices", force: :cascade do |t|
     t.string   "token",                     null: false
     t.boolean  "enabled",    default: true, null: false
     t.string   "platform",                  null: false
+    t.date     "date",                      null: false
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
@@ -130,6 +113,16 @@ ActiveRecord::Schema.define(version: 20160309031142) do
     t.string   "facebook_page_url"
   end
 
+  create_table "temples_cars", force: :cascade do |t|
+    t.integer  "temple_id"
+    t.integer  "car_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "temples_cars", ["car_id"], name: "index_temples_cars_on_car_id", using: :btree
+  add_index "temples_cars", ["temple_id"], name: "index_temples_cars_on_temple_id", using: :btree
+
   create_table "testimonials", force: :cascade do |t|
     t.string   "name",       null: false
     t.text     "text",       null: false
@@ -138,6 +131,5 @@ ActiveRecord::Schema.define(version: 20160309031142) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "cars", "temples"
   add_foreign_key "events", "temples"
 end

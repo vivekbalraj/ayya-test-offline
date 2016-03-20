@@ -5,6 +5,7 @@ class Temple < ActiveRecord::Base
   validates_with AttachmentSizeValidator, attributes: :img3, less_than: 1.megabytes
 
   has_many :events
+  has_and_belongs_to_many :cars, join_table: :temples_cars
 
   has_attached_file :img1, styles: { medium: "1024x1024>", thumb: "100x100>" }, :storage => :dropbox,
     :dropbox_credentials => Rails.root.join("config/dropbox.yml"), :dropbox_visibility => 'public'
