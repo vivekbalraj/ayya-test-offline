@@ -4,6 +4,7 @@
 //= require pickadate/picker.time
 
 $(document).ready ->
-  $('#event_date').pickadate()
+  $('#event_start_date').pickadate()
+  $('#event_end_date').pickadate()
   $('#notification_date').pickadate()
   return

@@ -7,7 +7,7 @@ ActiveAdmin.register_page "Dashboard" do
     columns do
       column do
         panel "Upcoming Events" do
-          table_for Event.where("date >= :d", d:Date.today).order('date asc').limit(10) do
+          table_for Event.where("start_date >= :d", d:Date.today).order('start_date asc').limit(10) do
             column("name")
             column("date")
             column("temple_id") {|temple| link_to(temple.name, admin_temple_path(temple)) }

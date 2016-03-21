@@ -1,16 +1,17 @@
 ActiveAdmin.register Event do
 
-  permit_params :name, :description, :date, :tamil_month, :tamil_date, :temple_id
+  permit_params :name, :description, :start_date, :end_date, :tamil_month, :tamil_date, :temple_id
 
   filter :temple
-  filter :date
+  filter :start_date
   filter :tamil_month, :as => :select
-  filter :tamil_date, :in => 1..31
+  filter :tamil_date, :in => 1..32
 
   index do
     id_column
     column :name
-    column :date
+    column :start_date
+    column :end_date
     column :tamil_month
     column :tamil_date
     column :temple
@@ -22,8 +23,9 @@ ActiveAdmin.register Event do
     f.inputs "Event" do
       f.input :name
       f.input :temple
-      f.input :date, as: :string
-      f.input :tamil_date, :in => 1..31
+      f.input :start_date, as: :string
+      f.input :end_date, as: :string
+      f.input :tamil_date, :in => 1..32
       f.input :tamil_month, :as => :select, :collection => ["சித்திரை", "வைகாசி", "ஆனி", "ஆடி", "ஆவணி", "புரட்டாசி", "ஐப்பசி", "கார்த்திகை", "மார்கழி", "தை", "மாசி", "பங்குனி"]
       f.input :description
     end
