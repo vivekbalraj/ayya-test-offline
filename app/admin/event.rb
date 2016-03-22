@@ -28,11 +28,11 @@ ActiveAdmin.register Event do
       f.input :temple
       f.input :tamil_month, :as => :select, :collection => ["சித்திரை", "வைகாசி", "ஆனி", "ஆடி", "ஆவணி", "புரட்டாசி", "ஐப்பசி", "கார்த்திகை", "மார்கழி", "தை", "மாசி", "பங்குனி"]
       f.input :n
-      f.input :no_of_days
       f.input :day, :as => :select, :collection => ["ஞாயிற்றுக் கிழமை", "திங்கட் கிழமை", "செவ்வாய்க் கிழமை", "புதன் கிழமை", "வியாழக் கிழமை", "வெள்ளிக் கிழமை", "சனிக் கிழமை"]
+      f.input :no_of_days
+      f.input :tamil_date, :in => 1..32
       f.input :start_date, as: :string
       f.input :end_date, as: :string
-      f.input :tamil_date, :in => 1..32
       f.input :description
     end
     f.actions
