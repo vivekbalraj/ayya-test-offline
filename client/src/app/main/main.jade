@@ -1,0 +1,14 @@
+.container
+
+  div
+    acme-navbar
+
+  //- .jumbotron.text-center
+    //- h1 
+
+  .row
+    .col-sm-6.col-md-4(ng-repeat="temple in main.temples")
+      .thumbnail
+        .caption
+          h3 {{ temple.name }}
+          p {{ temple.district }}
