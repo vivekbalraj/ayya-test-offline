@@ -1,0 +1,5 @@
+.row
+  .col-md-12
+    ui-gmap-google-map.map(center='mapCtrl.map.center' zoom='mapCtrl.map.zoom' options="mapCtrl.map.options" bounds="mapCtrl.map.bounds")
+      ui-gmap-marker(idKey="marker.id" coords="marker.center" options="marker.options" ng-repeat="marker in mapCtrl.markers track by $index")
+        ui-gmap-window(ng-cloak templateUrl="'/app/map/map-window.html'" templateParameter="marker.temple")

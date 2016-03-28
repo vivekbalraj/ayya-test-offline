@@ -1,15 +1,43 @@
 /* global malarkey:false, moment:false */
 
-import { config } from './index.config';
-import { routerConfig } from './index.route';
-import { runBlock } from './index.run';
-import { MainController } from './main/main.controller';
-import { GithubContributorService } from '../app/components/githubContributor/githubContributor.service';
-import { WebDevTecService } from '../app/components/webDevTec/webDevTec.service';
-import { NavbarDirective } from '../app/components/navbar/navbar.directive';
-import { MalarkeyDirective } from '../app/components/malarkey/malarkey.directive';
+import {
+  config
+}
+from './index.config';
+import {
+  routerConfig
+}
+from './index.route';
+import {
+  runBlock
+}
+from './index.run';
+import {
+  MainController
+}
+from './main/main.controller';
+import {
+  MapController
+}
+from './map/map.controller';
+import {
+  GithubContributorService
+}
+from '../app/components/githubContributor/githubContributor.service';
+import {
+  WebDevTecService
+}
+from '../app/components/webDevTec/webDevTec.service';
+import {
+  NavbarDirective
+}
+from '../app/components/navbar/navbar.directive';
+import {
+  MalarkeyDirective
+}
+from '../app/components/malarkey/malarkey.directive';
 
-angular.module('client', ['ngMessages', 'ui.router', 'ui.bootstrap', 'toastr'])
+angular.module('client', ['ngMessages', 'ui.router', 'ui.bootstrap', 'toastr', 'uiGmapgoogle-maps'])
   .constant('malarkey', malarkey)
   .constant('moment', moment)
   .config(config)
@@ -18,5 +46,6 @@ angular.module('client', ['ngMessages', 'ui.router', 'ui.bootstrap', 'toastr'])
   .service('githubContributor', GithubContributorService)
   .service('webDevTec', WebDevTecService)
   .controller('MainController', MainController)
+  .controller('MapController', MapController)
   .directive('acmeNavbar', NavbarDirective)
   .directive('acmeMalarkey', MalarkeyDirective);

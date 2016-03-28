@@ -1,0 +1,22 @@
+.mapinfowindow
+  h3 {{parameter.name}}
+  .clearfix.m10.lh45(ng-if="parameter.founded_at")
+    span.circle {{parameter.founded_at}}
+    | துடக்கம்
+  .clearfix.m10.lh45(ng-if="parameter.is_primary_thangal")
+    img.map-icon(src="assets/images/temple.svg")
+    | அய்யா கால் நாட்டிக் கொடுத்த நிழல்தாங்கள்.
+  .clearfix.m10.lh45(ng-if="parameter.is_book_read && !parameter.book_month")
+    img.map-icon(src="assets/images/book.svg")
+    | திரு ஏடு வாசிப்பு நடைபெறும் நிழல்தாங்கள்.
+  .clearfix.m10.lh45(ng-if="parameter.priest_name")
+    img.map-icon(src="assets/images/priest.svg")
+    | {{parameter.priest_name}}
+  .clearfix.m10.lh45(ng-if="parameter.book_month")
+    img.map-icon(src="assets/images/book.svg")
+    | {{parameter.book_month}} மாதம் திரு ஏடு வாசிப்பு நடைபெறும்.
+  .clearfix.m10.lh45(ng-if="parameter.cars")
+    img.map-icon(src="assets/images/charriot.svg")
+    | {{parameter.cars}}
+  //- a(href="#/app/temples/{{parameter.temple_type.toLowerCase()}}/{{parameter.id}}") கோவிலுக்கு செல்ல
+</div>

@@ -2,7 +2,7 @@
   "name": "client",
   "version": "0.0.0",
   "dependencies": {
-    "angular-messages": "~1.4.2",
+    "angular-messages": "^1.5.3",
     "jquery": "~2.1.4",
     "angular-ui-router": "~0.2.15",
     "bootstrap-sass": "~3.3.5",
@@ -11,7 +11,10 @@
     "angular-toastr": "~1.5.0",
     "moment": "~2.10.6",
     "animate.css": "~3.4.0",
-    "angular": "~1.4.2"
+    "angular": "~1.4.2",
+    "angular-google-maps": "^2.3.2",
+    "angular-simple-logger": "^0.1.7",
+    "lodash": "^4.6.1"
   },
   "devDependencies": {
     "angular-mocks": "~1.4.2"
@@ -30,6 +33,6 @@
   },
   "resolutions": {
     "jquery": "~2.1.4",
-    "angular": "~1.4.2"
+    "angular": "1.5.3"
   }
 }

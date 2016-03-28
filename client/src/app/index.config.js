@@ -1,4 +1,4 @@
-export function config ($logProvider, toastrConfig) {
+export function config($logProvider, toastrConfig, uiGmapGoogleMapApiProvider) {
   'ngInject';
   // Enable log
   $logProvider.debugEnabled(true);
@@ -9,4 +9,9 @@ export function config ($logProvider, toastrConfig) {
   toastrConfig.positionClass = 'toast-top-right';
   toastrConfig.preventDuplicates = true;
   toastrConfig.progressBar = true;
+
+  uiGmapGoogleMapApiProvider.configure({
+    key: 'AIzaSyCmU_GnOsVq-wNbisGQuxB_6l9e4ZF42N4',
+    v: '3.22'
+  });
 }
