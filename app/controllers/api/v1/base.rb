@@ -6,6 +6,7 @@ module API
       mount API::V1::Testimonials
       mount API::V1::Devices
       mount API::V1::Notifications
+      mount API::V1::Cars
     end
   end
 end

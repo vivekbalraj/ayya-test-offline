@@ -23,6 +23,14 @@
           label(for="priest_name") பணிவிடையாளர் பெயர்
           input.form-control(type="text" id="priest_name" placeholder="பாலன்")
         .form-group
+          வாகனங்கள்
+          .checkbox(ng-repeat="car in main.cars track by $index")
+            label
+              input(type="checkbox" value="")
+              option {{car.name}}
+          //- label(for="car") மற்ற வாகனங்கள்
+          //- input.form-control(type="text" id="car")
+        .form-group
           label(for="facebook_url") பேஸ்புக் பக்கம்
           input.form-control(type="url" id="facebook_url" placeholder="https://www.facebook.com/Kadambankulam/")
         .form-group

@@ -15,6 +15,10 @@ export class MainController {
       vm.temples = response.data.temples;
     });
 
+    $http.get('http://ayya.herokuapp.com/api/v1/cars').then(function(response) {
+      vm.cars = response.data.cars;
+    });
+
     vm.tamilMonths = ["", "சித்திரை", "வைகாசி", "ஆனி", "ஆடி", "ஆவணி", "புரட்டாசி", "ஐப்பசி", "கார்த்திகை",
     "மார்கழி", "தை", "மாசி", "பங்குனி"];
 
