@@ -6,6 +6,24 @@ ActiveAdmin.register_page "Dashboard" do
 
     columns do
       column do
+        panel "Unpublished temples" do
+          table_for Temple.where("is_published = false").order('created_at asc') do
+            column("id")
+            column("name")
+            column("village")
+            column("district")
+            column("latitude")
+            column("longitude")
+            column("founded_at")
+            column("mobile_number")
+            column("Edit") {|temple| link_to('Edit', admin_temple_path(temple)) }
+          end
+        end
+      end
+    end
+
+    columns do
+      column do
         panel "Upcoming Events" do
           table_for Event.where("start_date >= :d", d:Date.today).order('start_date asc').limit(10) do
             column("name")
@@ -16,18 +34,18 @@ ActiveAdmin.register_page "Dashboard" do
       end
     end
 
-    columns do
-      column do
-        panel "Recent Testimonials" do
-          ul do
-            Testimonial.last(5).map do |testimonial|
-              li testimonial.name
-              # link_to testimonial.name, admin_post_path(testimonial)
-            end
-          end
-        end
-      end
-    end
+    # columns do
+    #   column do
+    #     panel "Recent Testimonials" do
+    #       ul do
+    #         Testimonial.last(5).map do |testimonial|
+    #           li testimonial.name
+    #           # link_to testimonial.name, admin_post_path(testimonial)
+    #         end
+    #       end
+    #     end
+    #   end
+    # end
 
   end # content
 end
