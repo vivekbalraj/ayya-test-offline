@@ -49,9 +49,9 @@ ActiveAdmin.register Temple do
       f.input :longitude
       f.input :pincode
       f.input :street_address
-      f.input :img1, :as => :file, :hint => image_tag(f.object.img1.url)
-      f.input :img2, :as => :file, :hint => image_tag(f.object.img2.url)
-      f.input :img3, :as => :file, :hint => image_tag(f.object.img3.url)
+      f.input :img1, :as => :file, :hint => image_tag(f.object.img1.url(:thumb))
+      f.input :img2, :as => :file, :hint => image_tag(f.object.img2.url(:thumb))
+      f.input :img3, :as => :file, :hint => image_tag(f.object.img3.url(:thumb))
     end
     f.inputs do
       f.has_many :events do |event|
