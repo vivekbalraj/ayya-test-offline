@@ -25,20 +25,20 @@ ActiveAdmin.register Temple do
 
   form do |f|
     f.semantic_errors
-    f.inputs "Temple" do
+    f.inputs "Temple Details" do
       f.input :name
       f.input :temple_type, :as => :select, :collection => ["Pathi", "Thangal"], :include_blank => false
       f.input :founded_at
       f.input :is_published
       f.input :is_primary_thangal
-      f.input :information
       f.input :book_month, :as => :select, :collection => ["சித்திரை", "வைகாசி", "ஆனி", "ஆடி", "ஆவணி", "புரட்டாசி", "ஐப்பசி", "கார்த்திகை", "மார்கழி", "தை", "மாசி", "பங்குனி"], :include_blank => true
       f.input :priest_name
       f.input :facebook_page_url
-      f.input :contact_person
-      f.input :mobile_number, :as => :phone
-      f.input :contact_email, :as => :email
       f.input :cars, :as => :check_boxes
+      f.input :information, :input_html => {:rows => 9}
+    end
+
+    f.inputs "Temple Address" do
       f.input :village
       f.input :taluk
       f.input :district, :as => :select, :collection => ["அரியலூர்", "சென்னை", "கோயம்புத்தூர்", "கடலூர்", "தர்மபுரி", "திண்டுக்கல்", "ஈரோடு", "காஞ்சிபுரம்", "கன்னியாகுமரி", "கரூர்", "கிருஷ்ணகிரி", "மதுரை", "நாகப்பட்டினம்", "நாமக்கல்", "பெரம்பலூர்", "புதுக்கோட்டை", "இராமநாதபுரம்", "சேலம்", "சிவகங்கை", "தஞ்சாவூர்", "தேனி", "நீலகிரி", "திருநெல்வேலி", "திருவள்ளூர்", "திருவண்ணாமலை", "திருவாரூர்", "தூத்துக்குடி", "திருச்சிராப்பள்ளி", "திருப்பூர்", "வேலூர்", "விழுப்புரம்", "விருதுநகர்"], :include_blank => false
@@ -47,12 +47,22 @@ ActiveAdmin.register Temple do
       f.input :latitude
       f.input :longitude
       f.input :pincode
-      f.input :street_address
+      f.input :street_address, :input_html => {:rows => 5}
+    end
+
+    f.inputs "Contact Details" do
+      f.input :contact_person
+      f.input :mobile_number, :as => :phone
+      f.input :contact_email, :as => :email
+    end
+
+    f.inputs "Images" do
       f.input :img1, :as => :file, :hint => image_tag(f.object.img1.url(:thumb))
       f.input :img2, :as => :file, :hint => image_tag(f.object.img2.url(:thumb))
       f.input :img3, :as => :file, :hint => image_tag(f.object.img3.url(:thumb))
     end
-    f.inputs do
+
+    f.inputs "Events" do
       f.has_many :events do |event|
         event.input :name
         event.input :tamil_month, :as => :select, :collection => ["சித்திரை", "வைகாசி", "ஆனி", "ஆடி", "ஆவணி", "புரட்டாசி", "ஐப்பசி", "கார்த்திகை", "மார்கழி", "தை", "மாசி", "பங்குனி"]
