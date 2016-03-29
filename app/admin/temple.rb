@@ -31,7 +31,6 @@ ActiveAdmin.register Temple do
       f.input :founded_at
       f.input :is_published
       f.input :is_primary_thangal
-      f.input :is_book_read
       f.input :information
       f.input :book_month, :as => :select, :collection => ["சித்திரை", "வைகாசி", "ஆனி", "ஆடி", "ஆவணி", "புரட்டாசி", "ஐப்பசி", "கார்த்திகை", "மார்கழி", "தை", "மாசி", "பங்குனி"], :include_blank => true
       f.input :priest_name
