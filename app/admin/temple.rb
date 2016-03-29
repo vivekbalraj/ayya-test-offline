@@ -2,8 +2,9 @@ ActiveAdmin.register Temple do
 
   permit_params :name, :temple_type, :information, :village, :latitude, :longitude, :district, :founded_at, :contact_person, :country, :state, :taluk, :pincode, :street_address, :img1, :img2, :img3, :is_primary_thangal, :is_book_read, :is_published, :book_month, :mobile_number, :priest_name, :facebook_page_url, {:car_ids => []}, :contact_email
 
-  filter :temple_type, :as => :select, :collection => ["Pathi", "Thangal"]
+  filter :temple_type, :as => :select
   filter :district, :as => :select
+  filter :taluk, :as => :select
   filter :is_primary_thangal
   filter :is_book_read
   filter :is_published
@@ -51,6 +52,19 @@ ActiveAdmin.register Temple do
       f.input :img1, :as => :file, :hint => image_tag(f.object.img1.url)
       f.input :img2, :as => :file, :hint => image_tag(f.object.img2.url)
       f.input :img3, :as => :file, :hint => image_tag(f.object.img3.url)
+    end
+    f.inputs do
+      f.has_many :events do |event|
+        event.input :name
+        event.input :tamil_month, :as => :select, :collection => ["சித்திரை", "வைகாசி", "ஆனி", "ஆடி", "ஆவணி", "புரட்டாசி", "ஐப்பசி", "கார்த்திகை", "மார்கழி", "தை", "மாசி", "பங்குனி"]
+        event.input :n
+        event.input :day, :as => :select, :collection => ["ஞாயிற்றுக் கிழமை", "திங்கட் கிழமை", "செவ்வாய்க் கிழமை", "புதன் கிழமை", "வியாழக் கிழமை", "வெள்ளிக் கிழமை", "சனிக் கிழமை"]
+        event.input :no_of_days
+        event.input :tamil_date, :in => 1..32
+        event.input :start_date, as: :string
+        event.input :end_date, as: :string
+        event.input :description
+      end
     end
     f.actions
   end

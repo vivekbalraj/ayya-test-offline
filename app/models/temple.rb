@@ -7,6 +7,8 @@ class Temple < ActiveRecord::Base
   has_many :events
   has_and_belongs_to_many :cars, join_table: :temples_cars
 
+  accepts_nested_attributes_for :events
+
   has_attached_file :img1, styles: { medium: "1024x1024>", thumb: "100x100>" }, :storage => :dropbox,
     :dropbox_credentials => Rails.root.join("config/dropbox.yml"), :dropbox_visibility => 'public'
   validates_attachment_content_type :img1, content_type: /\Aimage\/.*\Z/
