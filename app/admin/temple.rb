@@ -12,6 +12,7 @@ ActiveAdmin.register Temple do
   scope :no_info
   scope :no_coords
   scope :no_image
+  scope :all_data
 
   index do
     id_column
