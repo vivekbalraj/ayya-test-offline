@@ -9,6 +9,10 @@ ActiveAdmin.register Temple do
   filter :is_book_read
   filter :is_published
 
+  scope :no_info
+  scope :no_coords
+  scope :no_image
+
   index do
     id_column
     column :name
