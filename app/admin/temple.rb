@@ -62,9 +62,9 @@ ActiveAdmin.register Temple do
     end
 
     f.inputs "Images" do
-      f.input :img1, :as => :file, :hint => image_tag(f.object.img1.url(:medium))
-      f.input :img2, :as => :file, :hint => image_tag(f.object.img2.url(:medium))
-      f.input :img3, :as => :file, :hint => image_tag(f.object.img3.url(:medium))
+      f.input :img1, :as => :file
+      f.input :img2, :as => :file
+      f.input :img3, :as => :file
     end
 
     f.inputs "Events" do
