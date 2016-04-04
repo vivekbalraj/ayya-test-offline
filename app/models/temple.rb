@@ -1,8 +1,8 @@
 class Temple < ActiveRecord::Base
   validates :name, :presence => true
-  validates_with AttachmentSizeValidator, attributes: :img1, less_than: 1.megabytes
-  validates_with AttachmentSizeValidator, attributes: :img2, less_than: 1.megabytes
-  validates_with AttachmentSizeValidator, attributes: :img3, less_than: 1.megabytes
+  # validates_with AttachmentSizeValidator, attributes: :img1, less_than: 1.megabytes
+  # validates_with AttachmentSizeValidator, attributes: :img2, less_than: 1.megabytes
+  # validates_with AttachmentSizeValidator, attributes: :img3, less_than: 1.megabytes
 
   has_many :events
   has_and_belongs_to_many :cars, join_table: :temples_cars
