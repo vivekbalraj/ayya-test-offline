@@ -39,8 +39,9 @@ namespace :notification do
         "delay_while_idle" => true,
         :data => {
           "message" => event.description,
-          "summaryText" => event.description,
-          "title" => event.title
+          "summaryText" => event.temple.name,
+          "title" => event.name,
+          "temple" => event.temple.id
         }
       }
 
