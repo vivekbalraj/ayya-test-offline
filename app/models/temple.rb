@@ -27,14 +27,16 @@ class Temple < ActiveRecord::Base
     images = $redis.get("images"+id.to_s)
     if images.nil?
       images = [img1.url(:medium), img2.url(:medium), img3.url(:medium)]
-      $redis.set("images"+id.to_s, images)
-      $redis.expire("images"+id.to_s, 3.hour.to_i)
       return images
     end
     images[1..images.length-2].split(',').map do |text|
       text = text.squish
       text = text[1..text.length-2]
     end
+  end
+
+  def thumb
+    thumb = $redis.get("images_thumb"+id.to_s)
   end
 
   after_save :clear_cache, :create_published_activity
