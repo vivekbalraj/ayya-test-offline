@@ -16,7 +16,7 @@ ActiveAdmin.register_page "Dashboard" do
             column("longitude")
             column("founded_at")
             column("mobile_number")
-            column("Edit") {|temple| link_to('Edit', admin_temple_path(temple)) }
+            column("Edit") {|temple| link_to('Edit', edit_admin_temple_url(temple)) }
           end
         end
       end
@@ -33,19 +33,6 @@ ActiveAdmin.register_page "Dashboard" do
         end
       end
     end
-
-    # columns do
-    #   column do
-    #     panel "Recent Testimonials" do
-    #       ul do
-    #         Testimonial.last(5).map do |testimonial|
-    #           li testimonial.name
-    #           # link_to testimonial.name, admin_post_path(testimonial)
-    #         end
-    #       end
-    #     end
-    #   end
-    # end
 
   end # content
 end

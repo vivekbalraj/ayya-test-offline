@@ -37,9 +37,16 @@ class Temple < ActiveRecord::Base
     end
   end
 
-  after_save :clear_cache
+  after_save :clear_cache, :create_published_activity
 
   def clear_cache
     $redis.del("images"+id.to_s)
   end
+
+  def create_published_activity
+    self.create_activity :published if (self.is_published_changed? && self.is_published == true)
+    self.create_activity :updated if (self.is_published == true)
+  end
+
+  include PublicActivity::Common
 end

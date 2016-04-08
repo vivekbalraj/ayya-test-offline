@@ -171,6 +171,11 @@ GEM
       railties (>= 3.1.0)
     polyamorous (1.2.0)
       activerecord (>= 3.0)
+    public_activity (1.5.0)
+      actionpack (>= 3.0.0)
+      activerecord (>= 3.0)
+      i18n (>= 0.5.0)
+      railties (>= 3.0.0)
     rack (1.6.4)
     rack-accept (0.4.5)
       rack (>= 0.4)
@@ -271,6 +276,7 @@ DEPENDENCIES
   paperclip-dropbox (>= 1.1.7)
   pg
   pickadate-rails
+  public_activity
   rack-cors
   rails (= 4.2.5.1)
   rails_12factor

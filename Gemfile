@@ -13,6 +13,8 @@ gem 'devise'
 gem 'pickadate-rails'
 gem 'active_skin'
 
+gem 'public_activity'
+
 gem 'grape'
 gem 'hashie-forbidden_attributes'
 gem 'rack-cors', :require => 'rack/cors'
@@ -45,4 +47,3 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-
