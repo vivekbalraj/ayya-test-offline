@@ -7,6 +7,7 @@ module API
       mount API::V1::Devices
       mount API::V1::Notifications
       mount API::V1::Cars
+      mount API::V1::Activities
     end
   end
 end
