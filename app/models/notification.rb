@@ -13,4 +13,12 @@ class Notification < ActiveRecord::Base
   def picture_url
     picture.url
   end
+
+  after_save :create_published_notification
+
+  def create_published_notification
+    self.create_activity :published if (self.is_published_changed? && self.is_published == true)
+  end
+
+  include PublicActivity::Common
 end

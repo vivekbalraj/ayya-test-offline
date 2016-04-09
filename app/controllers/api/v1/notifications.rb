@@ -4,10 +4,12 @@ module API
       include API::V1::Defaults
 
       resource :notifications do
-        desc "Return all published notifications"
-        get "", root: :notifications do
-          page = params[:page]
-          Notification.where(is_published: true).page(page)
+        desc "Get one published notification"
+        params do
+          requires :id, type: String, desc: "id of the notification"
+        end
+        get "", root: :notification do
+          Notification.select(:message, :id, :title).where(id: params[:id]).as_json(:methods => [:picture_url])
         end
       end
     end
