@@ -7,7 +7,7 @@ module API
         desc "Get all activities"
         get "", root: :activities do
           page = params[:page]
-          PublicActivity::Activity.all.page(page)
+          PublicActivity::Activity.order(:created_at).page(page)
         end
       end
     end
