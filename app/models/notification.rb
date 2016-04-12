@@ -11,7 +11,7 @@ class Notification < ActiveRecord::Base
   end
 
   def picture_url
-    picture_url = picture.url(:thumb)
+    picture_url = picture.url(:medium)
   end
 
   after_save :create_published_notification
