@@ -14,7 +14,7 @@ module API
             if activity['trackable_type'] == 'Temple'
               temples.push activity['trackable_id']
             elsif activity['trackable_type'] == 'Notification'
-              notification = Notification.select('id, title, message').find(activity['trackable_id']).as_json(:methods => [:picture_url])
+              notification = Notification.select('id, title, message, picture_file_name').find(activity['trackable_id']).as_json(:methods => [:picture_url])
               notifications.push notification
             end
           end
