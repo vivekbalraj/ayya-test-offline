@@ -12,10 +12,10 @@ module API
           response = Hash.new { "response" }
           activities.each do |activity|
             if activity['trackable_type'] == 'Temple'
-              temples.push Temple.select('id, name, temple_type').find(activity['trackable_id']).thumb
+              temple = Temple.select('id, name, temple_type').find(activity['trackable_id']).as_json(:methods => [:thumb])
+              temples.push temple
             elsif activity['trackable_type'] == 'Notification'
-              notification = Notification.select(:message, :id, :title).find(activity['trackable_id'])
-              notification.picture_url
+              notification = Notification.select(:message, :id, :title).find(activity['trackable_id']).as_json(:methods => [:picture_url])
               notifications.push notification
             end
           end
