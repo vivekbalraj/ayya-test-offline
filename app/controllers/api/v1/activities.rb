@@ -6,7 +6,7 @@ module API
       resource :activities do
         desc "Get all activities"
         get "", root: :activities do
-          activities = PublicActivity::Activity.order(:created_at).page(params[:page])
+          activities = PublicActivity::Activity.order('created_at DESC').page(params[:page])
           temples = []
           notifications = []
           response = Hash.new { "response" }
