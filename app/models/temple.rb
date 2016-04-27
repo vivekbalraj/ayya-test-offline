@@ -50,5 +50,10 @@ class Temple < ActiveRecord::Base
     self.create_activity :updated if (self.is_published == true)
   end
 
+  def viewed
+    self.views = self.views + 1;
+    self
+  end
+
   include PublicActivity::Common
 end

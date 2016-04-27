@@ -31,6 +31,14 @@ module API
           Temple.uniq.pluck(:district)
         end
 
+        desc "Increase the count of temple by one"
+        params do
+          requires :id, type: String, desc: "ID of the temple"
+        end
+        post "/view-temple", root: :temple do
+          Temple.find(params[:id]).viewed.save
+        end
+
         desc "Return a temple"
         params do
           requires :id, type: String, desc: "ID of the temple"
