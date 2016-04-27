@@ -17,12 +17,13 @@ ActiveAdmin.register Temple do
   index do
     id_column
     column :name
-    column :temple_type
     column :village
     column :district
     column :latitude
     column :longitude
-    column :founded_at
+    column "Images" do |m|
+      image_tag(m.img1.url(:thumb))
+    end
     column :is_published
     column :mobile_number
     actions
