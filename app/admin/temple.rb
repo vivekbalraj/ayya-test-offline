@@ -21,9 +21,7 @@ ActiveAdmin.register Temple do
     column :district
     column :latitude
     column :longitude
-    column "Images" do |m|
-      image_tag(m.img1.url(:thumb))
-    end
+    column :views
     column :is_published
     column :mobile_number
     actions
