@@ -47,7 +47,7 @@ class Temple < ActiveRecord::Base
 
   def create_published_activity
     self.create_activity :published if (self.is_published_changed? && self.is_published == true)
-    self.create_activity :updated if (self.is_published == true)
+    self.create_activity :updated if (self.is_published == true && !self.views_changed?)
   end
 
   def viewed
