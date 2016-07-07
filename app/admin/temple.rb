@@ -5,6 +5,7 @@ ActiveAdmin.register Temple do
   filter :temple_type, :as => :select
   filter :district, :as => :select
   filter :taluk, :as => :select
+  filter :pincode
   filter :is_primary_thangal
   filter :is_book_read
   filter :is_published
