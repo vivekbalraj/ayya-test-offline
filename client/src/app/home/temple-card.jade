@@ -1,0 +1,28 @@
+.card.hoverable
+  .card-image
+    img.activator.pointer(src="{{card.images[0]}}")
+    span.card-title {{card.name}}
+  .card-content
+    p.line-clamp {{card.information}}
+  //- .card-action
+    a(href="#") This is a link
+  .card-reveal
+    span.card-title.grey-text.text-darken-4 {{card.name}}
+      i.material-icons.right close
+    p.line-clamp {{card.information}}
+    .clearfix.iconify(ng-if="card.founded_at")
+      span.circle {{card.founded_at}}
+      | துடக்கம்
+    .clearfix.iconify(ng-if="card.is_primary_thangal")
+      img.map-icon(src="assets/images/temple.svg")
+      | அய்யா கால் நாட்டிக் கொடுத்த நிழல்தாங்கள்.
+    .clearfix.iconify(ng-if="card.priest_name")
+      img.map-icon(src="assets/images/priest.svg")
+      | {{card.priest_name}}
+    .clearfix.iconify(ng-if="card.book_month")
+      img.map-icon(src="assets/images/book.svg")
+      | {{card.book_month}} மாதம் திரு ஏடு வாசிப்பு நடைபெறும்.
+    .clearfix.iconify(ng-if="card.cars && card.cars.length > 0")
+      img.map-icon(src="assets/images/charriot.svg")
+      span(ng-repeat="car in card.cars track by car.id") {{car.name}}
+        span(ng-if="!$last") , 

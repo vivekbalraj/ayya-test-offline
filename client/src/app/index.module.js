@@ -1,5 +1,3 @@
-/* global malarkey:false, moment:false */
-
 import {
   config
 }
@@ -20,32 +18,10 @@ import {
   MapController
 }
 from './map/map.controller';
-import {
-  GithubContributorService
-}
-from '../app/components/githubContributor/githubContributor.service';
-import {
-  WebDevTecService
-}
-from '../app/components/webDevTec/webDevTec.service';
-import {
-  NavbarDirective
-}
-from '../app/components/navbar/navbar.directive';
-import {
-  MalarkeyDirective
-}
-from '../app/components/malarkey/malarkey.directive';
 
-angular.module('client', ['ngMessages', 'ui.router', 'ui.bootstrap', 'toastr', 'uiGmapgoogle-maps'])
-  .constant('malarkey', malarkey)
-  .constant('moment', moment)
+angular.module('client', ['ngMessages', 'ui.router', 'uiGmapgoogle-maps', 'akoenig.deckgrid'])
   .config(config)
   .config(routerConfig)
   .run(runBlock)
-  .service('githubContributor', GithubContributorService)
-  .service('webDevTec', WebDevTecService)
   .controller('MainController', MainController)
-  .controller('MapController', MapController)
-  .directive('acmeNavbar', NavbarDirective)
-  .directive('acmeMalarkey', MalarkeyDirective);
+  .controller('MapController', MapController);
