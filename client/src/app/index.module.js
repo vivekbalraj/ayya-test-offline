@@ -19,7 +19,7 @@ import {
 }
 from './map/map.controller';
 
-angular.module('client', ['ngMessages', 'ui.router', 'uiGmapgoogle-maps', 'akoenig.deckgrid'])
+angular.module('ayya1008', ['ui.router', 'akoenig.deckgrid'])
   .config(config)
   .config(routerConfig)
   .run(runBlock)

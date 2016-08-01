@@ -2,15 +2,12 @@
   "name": "client",
   "version": "0.0.0",
   "dependencies": {
-    "angular-messages": "^1.5.3",
     "jquery": "~2.1.4",
     "angular-ui-router": "~0.2.15",
     "animate.css": "~3.4.0",
     "angular": "~1.4.2",
-    "angular-google-maps": "^2.3.2",
-    "angular-simple-logger": "^0.1.7",
-    "lodash": "^4.6.1",
     "angular-deckgrid": "^0.5.0",
+    "lodash": "^4.6.1",
     "materialize": "^0.97.7"
   },
   "devDependencies": {

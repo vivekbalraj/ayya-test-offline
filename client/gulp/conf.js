@@ -24,8 +24,19 @@ exports.paths = {
  *  to inject css preprocessor deps and js files in karma
  */
 exports.wiredep = {
-  exclude: [/\/bootstrap\.js$/, /\/bootstrap-sass\/.*\.js/, /\/bootstrap\.css/],
-  directory: 'bower_components'
+  directory: 'bower_components',
+  overrides: {
+    materialize: {
+      main: ["bin/materialize.css",
+        "bin/materialize.js",
+        "fonts/roboto/Roboto-Bold.ttf",
+        "fonts/roboto/Roboto-Light.ttf",
+        "fonts/roboto/Roboto-Medium.ttf",
+        "fonts/roboto/Roboto-Regular.ttf",
+        "fonts/roboto/Roboto-Thin.ttf"
+      ]
+    }
+  }
 };
 
 /**
