@@ -15,13 +15,13 @@ import {
 }
 from './main/main.controller';
 import {
-  MapController
+  HomeController
 }
-from './map/map.controller';
+from './home/home.controller';
 
-angular.module('ayya1008', ['ui.router', 'akoenig.deckgrid'])
+angular.module('ayya1008', ['ui.router', 'akoenig.deckgrid', 'ngMap'])
   .config(config)
   .config(routerConfig)
   .run(runBlock)
   .controller('MainController', MainController)
-  .controller('MapController', MapController);
+  .controller('HomeController', HomeController);

@@ -1,83 +1,16 @@
-.container
-  .deckgrid(deckgrid source="main.imageTemples" cardTemplate="app/home/temple-card.html")
-
-//- form
-//-   .panel.panel-default
-//-     .panel-heading.pointer(ng-init="isCollapsed=false", ng-click="isCollapsed=!isCollapsed") Temple Details
-//-     .panel-body
-//-       .row
-//-         .form-group.col-sm-6
-//-           label(for="name") தாங்கல் பெயர் *
-//-           input.form-control(type="text" id="name" placeholder="திருச்செந்தூர் அவதார பத")
-//-         .form-group.col-sm-6
-//-           label(for="priest_name") பணிவிடையாளர் பெயர்
-//-           input.form-control(type="text" id="priest_name" placeholder="பாலன்")
-//-       .row
-//-         .form-group.col-xs-6
-//-           label(for="founded") நிறுவப்பட்ட வருடம்
-//-           input.form-control(type="number" id="founded" placeholder="1957")
-//-         .form-group.col-xs-6
-//-           label(for="book_month") திருஏடு மாதம்
-//-           select.form-control(id="book_month")
-//-             option(ng-repeat="month in main.tamilMonths track by $index") {{month}}
-//-       .form-group
-//-         h5 வாகனங்கள்
-//-         .row
-//-           .checkbox.col-xs-6(ng-repeat="car in main.cars track by $index")
-//-             label
-//-               input(type="checkbox" value="")
-//-               option {{car.name}}
-//-         //- label(for="car") மற்ற வாகனங்கள்
-//-         //- input.form-control(type="text" id="car")
-//-       .form-group
-//-         label(for="facebook_url") பேஸ்புக் பக்கம்
-//-         input.form-control(type="url" id="facebook_url" placeholder="https://www.facebook.com/Kadambankulam/")
-//-       .form-group
-//-         label(for="information") தகவல்
-//-         textarea.form-control(id="information")
-
-//-   .panel.panel-default
-//-     .panel-heading.pointer Temple Address
-//-     .panel-body
-//-       .row
-//-         .form-group.col-xs-6
-//-           label(for="village") கிராமம்
-//-           input.form-control(type="text" id="village" placeholder="கடம்பன்குளம்")
-//-         .form-group.col-xs-6
-//-           label(for="taluk") தாலுகா
-//-           input.form-control(type="text" id="taluk" placeholder="ராதாபுரம்")
-//-       .row
-//-         .form-group.col-xs-6
-//-           label(for="district") மாவட்டம்
-//-           select.form-control(id="district")
-//-             option(ng-repeat="district in main.districts track by $index") {{district}}
-//-         .form-group.col-xs-6
-//-           label(for="pincode") அஞ்சல் குறியீடு
-//-           input.form-control(type="number" id="pincode" placeholder="627109")
-//-       .row
-//-         .form-group.col-xs-6
-//-           label(for="latitude") அட்சரேகை (Latitude)
-//-           input.form-control(type="number" id="latitude" placeholder="8.334413")
-//-         .form-group.col-xs-6
-//-           label(for="longitude") தீர்க்கரேகை (Longitude)
-//-           input.form-control(type="number" id="longitude" placeholder="77.605804")
-//-       .form-group
-//-         label(for="street_address") முகவரி
-//-         textarea.form-control(id="street_address")
-
-//-   .panel.panel-default
-//-     .panel-heading.pointer Contact Person Details
-//-     .panel-body
-//-       .row
-//-         .form-group.col-sm-4
-//-           label(for="contact_person") தொடர்பு நபர்
-//-           input.form-control(type="text" id="contact_person" placeholder="சுப்பிரமணியம்ன்")
-//-         .form-group.col-sm-4
-//-           label(for="contact_number") மொபைல் எண் *
-//-           input.form-control(type="tel" id="contact_number" placeholder="+91-9611772683")
-//-         .form-group.col-sm-4
-//-           label(for="contact_email") மின்னஞ்சல்
-//-           input.form-control(type="email" id="contact_email" placeholder="rgk.sugan@gmail.com")
-//-   .panel.panel-default
-//-     .panel-body
-//-       button(type="submit" class="btn btn-primary btn-block") அனுப்பு
+.home(ng-controller="HomeController as home")
+  .container
+    .row
+    .row
+      .col.s4.right
+        ul.tabs.z-depth-1
+          li.tab.col.s2.active
+            a(href="#list-view", ng-class="{active: home.selectedTab==='list'}", ng-click="home.selectedTab='list'") பட்டியல்
+          li.tab.col.s2
+            a(href="#map-view", ng-class="{active: home.selectedTab==='map'}", ng-click="home.selectedTab='map'; home.initMap()") வரைபடம்
+  .row(ng-show="home.selectedTab==='list'")
+    .deckgrid(deckgrid source="main.imageTemples" cardTemplate="app/components/temple-card/temple-card.html")
+  .row(ng-show="home.selectedTab==='map'")
+    div(map-lazy-load="https://maps.google.com/maps/api/js?key=AIzaSyCmU_GnOsVq-wNbisGQuxB_6l9e4ZF42N4")
+      map(id="home-map", center="8.713913, 77.756652", zoom="9", default-style="false", lazy-init="true", style="height: calc(100vh - 155px)")
+        marker(position="{{temple.latitude}}, {{temple.longitude}}", ng-repeat="temple in main.mapTemples track by $index")
