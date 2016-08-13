@@ -1,18 +1,9 @@
-.navbar-fixed
-  nav.orange.lighten-1(role="navigation")
-    .nav-wrapper.container
-      a#logo-container.brand-logo(href="#") அய்யா 1008
-      ul.right.hide-on-med-and-down
-        li
-          a(href="https://play.google.com/store/apps/details?id=in.iamsugan.ayya1008" target="_blank") அண்ட்ராய்டு 1008
 
-      ul#nav-mobile.side-nav
-        li
-          a(href="https://play.google.com/store/apps/details?id=in.iamsugan.ayya1008") அண்ட்ராய்டு 1008
-      a.button-collapse(href="#" data-activates="nav-mobile")
-        i.material-icons menu
+ng-include(src="'../app/components/navbar/navbar.html'")
 
 .progress(ng-show="!main.isTemplesLoaded")
   .indeterminate
 
 ui-view
+
+ng-include(src="'../app/components/footer/footer.html'")

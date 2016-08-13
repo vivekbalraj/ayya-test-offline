@@ -11,6 +11,10 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
       url: 'index',
       templateUrl: 'app/home/home.html'
     })
+    .state('home.temples', {
+      url: 'temples',
+      templateUrl: 'app/temples/temples.html'
+    })
     .state('home.map', {
       url: 'map',
       templateUrl: 'app/map/map.html',

@@ -1,0 +1,16 @@
+.temples(ng-controller="TemplesController as temples")
+  .container
+    .row
+    .row
+      .col.s4.right
+        ul.tabs.z-depth-1
+          li.tab.col.s2.active
+            a(href="#list-view", ng-class="{active: temples.selectedTab==='list'}", ng-click="temples.selectedTab='list'") பட்டியல்
+          li.tab.col.s2
+            a(href="#map-view", ng-class="{active: temples.selectedTab==='map'}", ng-click="temples.selectedTab='map'; temples.initMap()") வரைபடம்
+  .row(ng-show="temples.selectedTab==='list'")
+    .deckgrid(deckgrid source="main.imageTemples" cardTemplate="app/components/temple-card/temple-card.html")
+  .row(ng-show="temples.selectedTab==='map'")
+    div(map-lazy-load="https://maps.google.com/maps/api/js?key=AIzaSyCmU_GnOsVq-wNbisGQuxB_6l9e4ZF42N4")
+      map(id="home-map", center="8.713913, 77.756652", zoom="9", default-style="false", lazy-init="true", style="height: calc(100vh - 155px)")
+        marker(position="{{temple.latitude}}, {{temple.longitude}}", ng-repeat="temple in main.mapTemples track by $index")

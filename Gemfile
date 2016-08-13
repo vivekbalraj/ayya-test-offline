@@ -20,6 +20,8 @@ gem 'hashie-forbidden_attributes'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'grape-active_model_serializers'
 
+gem 'omniauth-facebook'
+
 gem 'gcm'
 gem 'rails_12factor'
 gem 'paperclip', '~> 4.3'

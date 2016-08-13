@@ -1,16 +1,12 @@
 .home(ng-controller="HomeController as home")
-  .container
-    .row
-    .row
-      .col.s4.right
-        ul.tabs.z-depth-1
-          li.tab.col.s2.active
-            a(href="#list-view", ng-class="{active: home.selectedTab==='list'}", ng-click="home.selectedTab='list'") பட்டியல்
-          li.tab.col.s2
-            a(href="#map-view", ng-class="{active: home.selectedTab==='map'}", ng-click="home.selectedTab='map'; home.initMap()") வரைபடம்
-  .row(ng-show="home.selectedTab==='list'")
-    .deckgrid(deckgrid source="main.imageTemples" cardTemplate="app/components/temple-card/temple-card.html")
-  .row(ng-show="home.selectedTab==='map'")
-    div(map-lazy-load="https://maps.google.com/maps/api/js?key=AIzaSyCmU_GnOsVq-wNbisGQuxB_6l9e4ZF42N4")
-      map(id="home-map", center="8.713913, 77.756652", zoom="9", default-style="false", lazy-init="true", style="height: calc(100vh - 155px)")
-        marker(position="{{temple.latitude}}, {{temple.longitude}}", ng-repeat="temple in main.mapTemples track by $index")
+  .parallax-container
+    section.no-pad-bot.valign.white
+      .container
+        br
+        .row.center
+          h5.header.col.s12.light.orange-text தினமொரு நேரம் எந்தன் திருமொழி யதனைக் கேட்டால் பனிவெள்ளம் போலே பாவம் பறந்திடும் நிசமே சொன்னோம்.
+        .row.center
+          a(href="https://play.google.com/store/apps/details?id=in.iamsugan.ayya1008" class="btn-large waves-effect waves-light teal lighten-1") பதிவிறக்க
+        br
+    .parallax
+      img(src="../assets/images/lamp.jpg" width="100%")
