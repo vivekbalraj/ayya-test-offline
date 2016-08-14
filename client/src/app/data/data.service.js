@@ -26,4 +26,15 @@ export class DataService {
     }
     return deferred.promise;
   }
+
+  updateTempleViewed(id) {
+    let vm = this;
+    var deferred = vm.$q.defer();
+    vm.$http.post(vm.appConstants.server.url + 'temples/view-temple', {
+      id: id
+    }).then(function(response) {
+      deferred.resolve(response);
+    });
+    return deferred.promise;
+  }
 }

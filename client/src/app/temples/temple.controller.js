@@ -10,6 +10,8 @@ export class TempleController {
       angular.element('ul.tabs').tabs();
     }, 10);
 
+    DataService.updateTempleViewed(parseInt($state.params.templeId));
+
     DataService.fetchTemples().then(temples => {
       vm.temple = _.find(temples, temple => {
         return temple.id === parseInt($state.params.templeId);

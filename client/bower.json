@@ -11,7 +11,8 @@
     "materialize": "^0.97.7",
     "ngmap": "^1.17.3",
     "angular-read-more": "^1.0.5",
-    "angular-encode-uri": "^1.0.0"
+    "angular-encode-uri": "^1.0.0",
+    "angular-easyfb": "^1.5.1"
   },
   "devDependencies": {
     "angular-mocks": "~1.4.2"

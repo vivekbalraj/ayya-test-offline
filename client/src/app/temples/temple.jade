@@ -1,16 +1,18 @@
 .temple.container(ng-controller="TempleController as temple")
 
-  h1.blue-text.text-darken-4 {{temple.temple.name}}
-  .fb-share-button(data-href="{{temple.$location.absUrl()}}" data-layout="button_count" data-size="large" data-mobile-iframe="true")
-    a.fb-xfbml-parse-ignore(target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{temple.$location.absUrl()|encodeUri}};src=sdkpreparse")
+  .card-panel.blue.darken-4.center-align
+    h3.white-text {{temple.temple.name}}
 
-  .slider
-    ul.slides
-      li(ng-repeat="image in temple.temple.images")
-        img(src="{{image}}" height="100%")
+  .card-panel(ng-if="temple.temple.images && temple.temple.images.length > 0")
+    .slider
+      ul.slides
+        li(ng-repeat="image in temple.temple.images")
+          img(src="{{image}}" height="100%")
 
-  .stats
+  .card-panel(ng-if="temple.temple.information")
     p(hm-read-more hm-text="{{temple.temple.information}}" hm-limit="500" hm-more-text="மேலும் வாசிக்க" hm-less-text="சுருக்க" hm-dots-class="dots" hm-link-class="links") {{temple.temple.information}}
+
+  .card-panel
     .clearfix.iconify(ng-if="temple.temple.founded_at")
       span.circle {{temple.temple.founded_at}}
       | துடக்கம்
@@ -27,11 +29,20 @@
       img.map-icon(src="assets/images/charriot.svg")
       span(ng-repeat="car in temple.temple.cars track by car.id") {{car.name}}
         span(ng-if="!$last") , 
+    .clearfix.iconify(ng-if="temple.temple.views > 1")
+      span.circle {{temple.temple.views}}
+      | முறை பார்க்கப்பட்டுள்ளது
 
-  .map
+  .card-panel.center-align(ng-if="temple.temple.facebook_page_url")
+    .fb-page(data-href="{{temple.temple.facebook_page_url}}" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true")
+
+  .card-panel(ng-if="temple.temple.latitude")
     div(map-lazy-load="https://maps.google.com/maps/api/js?key=AIzaSyCmU_GnOsVq-wNbisGQuxB_6l9e4ZF42N4")
-      map(id="temple-map", center="{{temple.temple.latitude}}, {{temple.temple.longitude}}", zoom="9", default-style="false", style="width: 100%")
+      map(id="temple-map", center="{{temple.temple.latitude}}, {{temple.temple.longitude}}", zoom="13", default-style="false", style="width: 100%")
         marker(position="{{temple.temple.latitude}}, {{temple.temple.longitude}}")
 
-  .facebook-page
-    .fb-page(data-href="{{temple.temple.facebook_page_url}}" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true")
+  .card-panel
+    .fb-like(data-href="{{temple.$location.absUrl()}}" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true")
+
+  .card-panel.center-align
+    .fb-comments(data-href="{{temple.$location.absUrl()}}" data-numposts="5")
