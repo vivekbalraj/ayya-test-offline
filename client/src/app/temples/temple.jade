@@ -1,0 +1,37 @@
+.temple.container(ng-controller="TempleController as temple")
+
+  h1.blue-text.text-darken-4 {{temple.temple.name}}
+  .fb-share-button(data-href="{{temple.$location.absUrl()}}" data-layout="button_count" data-size="large" data-mobile-iframe="true")
+    a.fb-xfbml-parse-ignore(target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{temple.$location.absUrl()|encodeUri}};src=sdkpreparse")
+
+  .slider
+    ul.slides
+      li(ng-repeat="image in temple.temple.images")
+        img(src="{{image}}" height="100%")
+
+  .stats
+    p(hm-read-more hm-text="{{temple.temple.information}}" hm-limit="500" hm-more-text="மேலும் வாசிக்க" hm-less-text="சுருக்க" hm-dots-class="dots" hm-link-class="links") {{temple.temple.information}}
+    .clearfix.iconify(ng-if="temple.temple.founded_at")
+      span.circle {{temple.temple.founded_at}}
+      | துடக்கம்
+    .clearfix.iconify(ng-if="temple.temple.is_primary_thangal")
+      img.map-icon(src="assets/images/temple.svg")
+      | அய்யா கால் நாட்டிக் கொடுத்த நிழல்தாங்கள்.
+    .clearfix.iconify(ng-if="temple.temple.priest_name")
+      img.map-icon(src="assets/images/priest.svg")
+      | {{temple.temple.priest_name}}
+    .clearfix.iconify(ng-if="temple.temple.book_month")
+      img.map-icon(src="assets/images/book.svg")
+      | {{temple.temple.book_month}} மாதம் திரு ஏடு வாசிப்பு நடைபெறும்.
+    .clearfix.iconify(ng-if="temple.temple.cars && temple.temple.cars.length > 0")
+      img.map-icon(src="assets/images/charriot.svg")
+      span(ng-repeat="car in temple.temple.cars track by car.id") {{car.name}}
+        span(ng-if="!$last") , 
+
+  .map
+    div(map-lazy-load="https://maps.google.com/maps/api/js?key=AIzaSyCmU_GnOsVq-wNbisGQuxB_6l9e4ZF42N4")
+      map(id="temple-map", center="{{temple.temple.latitude}}, {{temple.temple.longitude}}", zoom="9", default-style="false", style="width: 100%")
+        marker(position="{{temple.temple.latitude}}, {{temple.temple.longitude}}")
+
+  .facebook-page
+    .fb-page(data-href="{{temple.temple.facebook_page_url}}" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true")

@@ -11,6 +11,7 @@ export class MainController {
     DataService.fetchTemples().then(temples => {
       vm.temples = temples;
       vm.imageTemples = _.chain(vm.temples).filter((temple) => temple.thumb !== '/img1s/thumb/missing.png' && temple.information).shuffle().value();
+      vm.imageTemples = _.sortBy(vm.imageTemples, 'temple_type');
       vm.mapTemples = vm.temples.filter(temple => !!temple.latitude);
       vm.isTemplesLoaded = true;
     });

@@ -32,7 +32,7 @@ export function runBlock($rootScope, $window, AuthService) {
     js = d.createElement('script');
     js.id = id;
     js.async = true;
-    js.src = "//connect.facebook.net/en_US/sdk.js";
+    js.src = "//connect.facebook.net/ta_IN/sdk.js";
 
     ref.parentNode.insertBefore(js, ref);
 

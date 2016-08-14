@@ -13,7 +13,16 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
     })
     .state('home.temples', {
       url: 'temples',
+      abstract: true,
+      template: '<ui-view></ui-view>'
+    })
+    .state('home.temples.index', {
+      url: '',
       templateUrl: 'app/temples/temples.html'
+    })
+    .state('home.temples.detail', {
+      url: '/:templeId',
+      templateUrl: 'app/temples/temple.html'
     })
     .state('home.map', {
       url: 'map',
