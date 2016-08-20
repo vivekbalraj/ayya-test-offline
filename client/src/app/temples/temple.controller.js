@@ -8,7 +8,7 @@ export class TempleController {
 
     $timeout(function() {
       angular.element('ul.tabs').tabs();
-    }, 10);
+    }, 1000);
 
     DataService.updateTempleViewed(parseInt($state.params.templeId));
 

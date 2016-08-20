@@ -31,6 +31,9 @@ gem 'kaminari'
 
 gem 'redis'
 
+# angular prerender
+gem 'prerender_rails'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

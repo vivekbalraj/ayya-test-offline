@@ -37,4 +37,15 @@ export class DataService {
     });
     return deferred.promise;
   }
+
+  getTemple(id) {
+    let vm = this;
+    var deferred = vm.$q.defer();
+    vm.$http.get(vm.appConstants.server.url + 'temples/view-temple', {
+      id: id
+    }).then(function(response) {
+      deferred.resolve(response);
+    });
+    return deferred.promise;
+  }
 }

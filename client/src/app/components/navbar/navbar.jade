@@ -6,10 +6,23 @@
         li(ui-sref-active="active")
           a(ui-sref="home.temples.index") கோயில்கள்
         li
-          a(href="https://play.google.com/store/apps/details?id=in.iamsugan.ayya1008" target="_blank") அண்ட்ராய்டு 1008
+          a.waves-effect.waves-light.btn.blue.darken-4(href="https://play.google.com/store/apps/details?id=in.iamsugan.ayya1008" target="_blank") அண்ட்ராய்டு 1008
+        //- li
+          button.waves-effect.waves-light.btn.blue.darken-4.modal-trigger(data-target="login") உள் நுழை
 
       ul#nav-mobile.side-nav
+        li(ui-sref-active="active")
+          a(ui-sref="home.temples.index") கோயில்கள்
+        //- li
+          a() உள் நுழை
         li
           a(href="https://play.google.com/store/apps/details?id=in.iamsugan.ayya1008") அண்ட்ராய்டு 1008
       a.button-collapse(href="#" data-activates="nav-mobile")
         i.material-icons menu
+
+#login.modal
+  .modal-content
+    h4 Modal Header
+    p A bunch of text
+  .modal-footer
+    a.modal-action.modal-close.waves-effect.waves-green.btn-flat(href="#!") Agree

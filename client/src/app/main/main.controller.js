@@ -1,5 +1,5 @@
 export class MainController {
-  constructor(DataService) {
+  constructor(DataService, $timeout) {
     'ngInject';
 
     this.temples = [];
@@ -7,6 +7,10 @@ export class MainController {
     let vm = this;
 
     vm.isTemplesLoaded = false;
+
+    $timeout(function() {
+      angular.element(".button-collapse").sideNav();
+    }, 10);
 
     DataService.fetchTemples().then(temples => {
       vm.temples = temples;

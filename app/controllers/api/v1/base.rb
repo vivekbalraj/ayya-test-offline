@@ -8,6 +8,7 @@ module API
       mount API::V1::Notifications
       mount API::V1::Cars
       mount API::V1::Activities
+      mount API::V1::Users
     end
   end
 end
