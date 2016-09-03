@@ -12,5 +12,5 @@
     .deckgrid(deckgrid source="main.imageTemples" cardTemplate="app/components/temple-card/temple-card.html")
   .row(ng-show="temples.selectedTab==='map'")
     div(map-lazy-load="https://maps.google.com/maps/api/js?key=AIzaSyCmU_GnOsVq-wNbisGQuxB_6l9e4ZF42N4")
-      map(id="home-map", center="8.713913, 77.756652", zoom="9", default-style="false", lazy-init="true", style="height: calc(100vh - 155px)")
+      map(id="home-map", center="{{main.mapCenter.latitude}}, {{main.mapCenter.longitude}}", zoom="6", default-style="false", lazy-init="true", style="height: calc(100vh - 155px)")
         marker(position="{{temple.latitude}}, {{temple.longitude}}", ng-repeat="temple in main.mapTemples track by $index")
