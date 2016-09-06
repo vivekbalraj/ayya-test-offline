@@ -21,7 +21,7 @@ class Temple < ActiveRecord::Base
   scope :no_info, -> { where.not "information <> ''" }
   scope :no_coords, -> { where "latitude is null" or "longitude is null" }
   scope :no_image, -> { where "img1_file_name is null and img2_file_name is null and img3_file_name is null" }
-  scope :has_fb_page, -> { where.not "facebook_page_url is null" }
+  scope :has_fb_page, -> { where "facebook_page_url <> ''" }
   scope :all_data, -> { }
 
   def images
