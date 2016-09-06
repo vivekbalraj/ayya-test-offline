@@ -13,6 +13,7 @@ ActiveAdmin.register Temple do
   scope :no_info
   scope :no_coords
   scope :no_image
+  scope :has_fb_page
   scope :all_data
 
   index do
