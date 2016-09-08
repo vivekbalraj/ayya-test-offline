@@ -7,6 +7,7 @@ import { MainController } from './main/main.controller';
 import { HomeController } from './home/home.controller';
 import { TemplesController } from './temples/temples.controller';
 import { TempleController } from './temples/temple.controller';
+import { NewTempleController } from './temples/new.controller';
 
 import { DataService } from './data/data.service';
 
@@ -19,4 +20,5 @@ angular.module('ayya1008', ['ui.router', 'akoenig.deckgrid', 'ngMap', 'hm.readmo
   .controller('HomeController', HomeController)
   .controller('TemplesController', TemplesController)
   .controller('TempleController', TempleController)
+  .controller('NewTempleController', NewTempleController)
   .service('DataService', DataService);

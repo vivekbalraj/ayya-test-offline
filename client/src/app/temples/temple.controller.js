@@ -1,5 +1,5 @@
 export class TempleController {
-  constructor($timeout, NgMap, DataService, $state, $location) {
+  constructor($timeout, NgMap, DataService, $state, $location, $window) {
     'ngInject';
 
     let vm = this;
@@ -22,6 +22,8 @@ export class TempleController {
       $timeout(function() {
         angular.element('.slider').slider();
       }, 10);
+
+      $window.document.title = `${vm.temple.name} | அய்யா பதிகள் | Ayyavazhi Temples`;
     });
   }
 

@@ -1,0 +1,38 @@
+.container(ng-controller="NewTempleController as newTemple")
+  .card
+    .card-content
+      .card-title தாங்கலை சேர்க்க
+      form.col.s12
+        .row
+          .input-field.col.s12
+            input(id="first_name" type="text" class="validate")
+            label(for="first_name") Temple Name / தாங்கல் பெயர் *
+        .row
+          .input-field.col.s12
+            textarea.materialize-textarea
+            label Information / தகவல்
+        .row
+          .input-field.col.s6
+            input(id="founded" type="number" class="validate" min="1800" max="2016")
+            label(for="founded") Founded Year / நிறுவப்பட்ட வருடம்
+          .input-field.col.s6
+            input.validate(id="priest" type="text")
+            label(for="priest") Priest Name / பணிவிடையாளர் பெயர்
+        .row
+          .input-field.col.s12
+            input.validate(id="fb_page_url" type="url")
+            label(for="fb_page_url") Facebook page URL / பேஸ்புக் பக்கம்
+        .row
+          .input-field.col.s6
+            select(multiple)
+              option(disabled selected) வாகனங்கள்
+              option(ng-repeat="car in newTemple.cars track by car.id") {{car.name}}
+            label வாகனங்கள்
+          .input-field.col.s6
+            select
+              option(disabled selected) திருஏடு மாதம்
+              option(value="{{$index}}" ng-repeat="month in newTemple.tamilMonths track by $index") {{month}}
+            label திருஏடு மாதம்
+        .row.center-align
+          button.btn.waves-effect.waves-light(type="submit" name="action" ng-click="newTemple.submit()") அனுப்பு
+            i.material-icons.right send

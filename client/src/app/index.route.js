@@ -20,6 +20,10 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
       url: '',
       templateUrl: 'app/temples/temples.html'
     })
+    .state('home.temples.add', {
+      url: '/add',
+      templateUrl: 'app/temples/new.html'
+    })
     .state('home.temples.detail', {
       url: '/:templeId',
       templateUrl: 'app/temples/temple.html'
