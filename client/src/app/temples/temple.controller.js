@@ -6,6 +6,8 @@ export class TempleController {
     vm.NgMap = NgMap;
     vm.$location = $location;
 
+    window.prerenderReady = false;
+
     $timeout(function() {
       angular.element('ul.tabs').tabs();
     }, 1000);
@@ -23,6 +25,7 @@ export class TempleController {
         angular.element('.slider').slider();
       }, 10);
       $window.document.title = `${vm.temple.name} | அய்யா பதிகள் | Ayyavazhi Temples`;
+      window.prerenderReady = true;
     });
   }
 
