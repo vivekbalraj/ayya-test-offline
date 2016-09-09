@@ -6,7 +6,7 @@ gem 'rails', '4.2.5.1'
 # Use pg as the database for Active Record
 gem 'pg'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+# gem 'turbolinks'
 
 gem 'activeadmin'
 gem 'devise'
