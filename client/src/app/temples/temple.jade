@@ -7,7 +7,7 @@
     .slider
       ul.slides
         li(ng-repeat="image in temple.temple.images")
-          img(src="{{image}}" height="100%")
+          img(src="{{image}}" height="100%" alt="{{temple.temple.name}}")
 
   .card-panel(ng-if="temple.temple.information")
     p(hm-read-more hm-text="{{temple.temple.information}}" hm-limit="500" hm-more-text="மேலும் வாசிக்க" hm-less-text="சுருக்க" hm-dots-class="dots" hm-link-class="links") {{temple.temple.information}}
