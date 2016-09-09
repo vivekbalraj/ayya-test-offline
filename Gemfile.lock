@@ -263,6 +263,8 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.2)
+    turbolinks (2.5.3)
+      coffee-rails
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     virtus (1.0.5)
@@ -305,4 +307,5 @@ DEPENDENCIES
   rails_12factor
   redis
   spring
+  turbolinks
   web-console (~> 2.0)
