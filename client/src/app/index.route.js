@@ -8,10 +8,10 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
       abstract: true,
       controllerAs: 'main'
     })
-    .state('home.index', {
-      url: '',
-      templateUrl: 'app/home/home.html'
-    })
+    // .state('home.index', {
+    //   url: '',
+    //   templateUrl: 'app/home/home.html'
+    // })
     .state('home.temples', {
       url: 'temples',
       abstract: true,
@@ -32,5 +32,5 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
       controllerAs: 'mapCtrl'
     });
 
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/temples');
 }
