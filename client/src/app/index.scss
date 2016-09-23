@@ -67,6 +67,10 @@
   transform: translateY(-50%);
 }
 
+.new-line-fix {
+  white-space: pre-wrap;
+}
+
 /**
  *  Do not remove the comments below. It's the markers used by gulp-inject to inject
  *  all your sass files automatically

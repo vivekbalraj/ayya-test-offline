@@ -10,7 +10,7 @@
           img(src="{{image}}" height="100%" alt="{{temple.temple.name}}")
 
   .card-panel(ng-if="temple.temple.information")
-    p {{temple.temple.information}}
+    p.new-line-fix {{temple.temple.information}}
 
   .card-panel
     .clearfix.iconify(ng-if="temple.temple.founded_at")
