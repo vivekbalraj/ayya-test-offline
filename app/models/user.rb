@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   devise :omniauthable, :omniauth_providers => [:facebook]
 
-  permit_params :name, :email, :mobile, :gender, :birthday, :facebook_id
+  # permit_params :name, :email, :mobile, :gender, :birthday, :facebook_id
 
   before_save :ensure_authentication_token
 
