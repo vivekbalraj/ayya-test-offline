@@ -16,7 +16,9 @@ export class NewTempleController {
 
     vm.init();
 
-    vm.temple = {};
+    vm.temple = {
+      cars: []
+    };
   }
 
   init() {
@@ -36,39 +38,41 @@ export class NewTempleController {
     if (vm.temple.name) {
       vm.isSpinner = true;
 
-      vm.ezfb.login(function(res) {
+      vm.ezfb.login(function() {
         vm.ezfb.api('/me?fields=id,name,email,birthday,gender', function(user) {
-          vm.temple.contact_person = user.name;
-          vm.temple.contact_email = user.email;
-          vm.$http({
-            method: 'POST',
-            url: vm.appConstants.server.url + 'temples',
-            data: vm.temple,
-            transformResponse: function(data, headersGetter, status) {
-              return {
-                data: data
-              };
-            }
-          }).then(function(response) {
-            console.log(response);
-          }, function(error) {
-            console.log(error);
-          });
-          vm.$http({
-            method: 'POST',
-            url: vm.appConstants.server.url + 'users/register',
-            data: {
-              email: user.email,
-              facebook_id: user.id,
-              gender: user.gender,
-              name: user.name
-            },
-            transformResponse: function(data, headersGetter, status) {
-              return {
-                data: data
-              };
-            }
-          });
+          if (user) {
+            vm.temple.contact_person = user.name;
+            vm.temple.contact_email = user.email;
+            vm.$http({
+              method: 'POST',
+              url: vm.appConstants.server.url + 'temples',
+              data: vm.temple,
+              transformResponse: function(data) {
+                return {
+                  data: data
+                };
+              }
+            }).then(function(response) {
+              console.log(response);
+            }, function(error) {
+              console.log(error);
+            });
+            vm.$http({
+              method: 'POST',
+              url: vm.appConstants.server.url + 'users/register',
+              data: {
+                email: user.email,
+                facebook_id: user.id,
+                gender: user.gender,
+                name: user.name
+              },
+              transformResponse: function(data) {
+                return {
+                  data: data
+                };
+              }
+            });
+          }
           vm.isSpinner = false;
         });
       }, {
