@@ -54,9 +54,11 @@ export class NewTempleController {
                 };
               }
             }).then(function() {
+              vm.isSpinner = false;
               vm.$state.go('home.temples');
             }, function(error) {
               console.log(error);
+              vm.isSpinner = false;
             });
             vm.$http({
               method: 'POST',
@@ -75,7 +77,6 @@ export class NewTempleController {
               }
             });
           }
-          vm.isSpinner = false;
         });
       }, {
         scope: 'email, public_profile, user_friends, user_birthday'
