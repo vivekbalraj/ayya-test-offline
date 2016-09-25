@@ -64,7 +64,8 @@ export class NewTempleController {
                 email: user.email,
                 facebook_id: user.id,
                 gender: user.gender,
-                name: user.name
+                name: user.name,
+                birthday: user.birthday
               },
               transformResponse: function(data) {
                 return {
