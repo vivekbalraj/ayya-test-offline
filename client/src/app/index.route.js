@@ -5,12 +5,13 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
       url: '/',
       templateUrl: 'app/main/main.html',
       controller: 'MainController',
+      abstract: true,
       controllerAs: 'main'
     })
-    .state('home.index', {
-      url: 'index',
-      templateUrl: 'app/home/home.html'
-    })
+    // .state('home.index', {
+    //   url: '',
+    //   templateUrl: 'app/home/home.html'
+    // })
     .state('home.temples', {
       url: 'temples',
       abstract: true,
@@ -35,5 +36,5 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
       controllerAs: 'mapCtrl'
     });
 
-  $urlRouterProvider.otherwise('/index');
+  $urlRouterProvider.otherwise('/temples');
 }

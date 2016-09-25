@@ -6,6 +6,8 @@ export class TempleController {
     vm.NgMap = NgMap;
     vm.$location = $location;
 
+    window.prerenderReady = false;
+
     $timeout(function() {
       angular.element('ul.tabs').tabs();
     }, 1000);

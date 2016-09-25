@@ -34,6 +34,8 @@ gem 'redis'
 # angular prerender
 gem 'prerender_rails'
 
+gem 'rack-rewrite'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

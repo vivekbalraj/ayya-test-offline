@@ -1,4 +1,4 @@
-export function config($logProvider, ezfbProvider) {
+export function config($logProvider, ezfbProvider, $locationProvider) {
   'ngInject';
 
   ezfbProvider.setLocale('ta_IN');
@@ -10,4 +10,5 @@ export function config($logProvider, ezfbProvider) {
     version: 'v2.7'
   });
   $logProvider.debugEnabled(false);
+  $locationProvider.html5Mode(true);
 }

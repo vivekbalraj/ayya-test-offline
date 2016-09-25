@@ -1,6 +1,6 @@
 .card.hoverable
   .card-image
-    img.activator.pointer(src="{{card.images[0]}}")
+    img.activator.pointer(src="{{card.images[0]}}" alt="{{card.name}}")
     span.card-title {{card.name}}
   .card-content
     p.line-clamp {{card.information}}
@@ -9,7 +9,7 @@
   .card-reveal
     span.card-title.grey-text.text-darken-4 {{card.name}}
       i.material-icons.right close
-    p.line-clamp {{card.information}}
+    p.line-clamp.new-line-fix {{card.information}}
     .clearfix.iconify(ng-if="card.founded_at")
       span.circle {{card.founded_at}}
       | துடக்கம்

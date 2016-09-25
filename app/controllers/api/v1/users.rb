@@ -43,13 +43,16 @@ module API
         params do
           requires :name, :type => String, :desc => "Name"
           requires :email, :type => String, :desc => "Email"
-          requires :password, :type => String, :desc => "Password"
+          # requires :password, :type => String, :desc => "Password"
         end
         post 'register' do
           user = User.new(
-            name:       params[:name],
-            password:   params[:password],
-            email:      params[:email]
+            name:         params[:name],
+            facebook_id:  params[:facebook_id],
+            email:        params[:email],
+            gender:       params[:gender],
+            provider:     "facebook",
+            password:     params[:facebook_id]
           )
 
           if user.valid?

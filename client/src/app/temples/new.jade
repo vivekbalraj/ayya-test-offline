@@ -5,34 +5,65 @@
       form.col.s12
         .row
           .input-field.col.s12
-            input(id="first_name" type="text" class="validate")
+            input(id="first_name" type="text" class="validate" ng-model="newTemple.temple.name" required)
             label(for="first_name") Temple Name / தாங்கல் பெயர் *
         .row
           .input-field.col.s12
-            textarea.materialize-textarea
+            textarea.materialize-textarea(ng-model="newTemple.temple.information")
             label Information / தகவல்
         .row
           .input-field.col.s6
-            input(id="founded" type="number" class="validate" min="1800" max="2016")
+            input(id="founded" type="number" class="validate" min="1800" max="2016" ng-model="newTemple.temple.founded_at")
             label(for="founded") Founded Year / நிறுவப்பட்ட வருடம்
           .input-field.col.s6
-            input.validate(id="priest" type="text")
+            input.validate(id="priest" type="text" ng-model="newTemple.temple.priest_name")
             label(for="priest") Priest Name / பணிவிடையாளர் பெயர்
         .row
           .input-field.col.s12
-            input.validate(id="fb_page_url" type="url")
+            input.validate(id="fb_page_url" type="url" ng-model="newTemple.temple.facebook_page_url")
             label(for="fb_page_url") Facebook page URL / பேஸ்புக் பக்கம்
         .row
           .input-field.col.s6
-            select(multiple)
+            select(multiple ng-model="newTemple.temple.cars")
               option(disabled selected) வாகனங்கள்
-              option(ng-repeat="car in newTemple.cars track by car.id") {{car.name}}
+              option(value="{{car.id}}" ng-repeat="car in newTemple.cars track by car.id") {{car.name}}
             label வாகனங்கள்
           .input-field.col.s6
-            select
+            select(ng-model="newTemple.temple.book_month")
               option(disabled selected) திருஏடு மாதம்
-              option(value="{{$index}}" ng-repeat="month in newTemple.tamilMonths track by $index") {{month}}
+              option(value="{{month}}" ng-repeat="month in newTemple.tamilMonths track by $index") {{month}}
             label திருஏடு மாதம்
+        .row
+          .input-field.col.s6
+            input(id="village" type="text" ng-model="newTemple.temple.village")
+            label(for="village") Village / கிராமம்
+          .input-field.col.s6
+            input(id="taluk" type="text" ng-model="newTemple.temple.taluk")
+            label(for="taluk") Taluk / தாலுகா
+        .row
+          .input-field.col.s6
+            select(ng-model="newTemple.temple.district")
+              option(disabled selected) மாவட்டம்
+              option(value="{{district}}" ng-repeat="district in newTemple.districts track by $index") {{district}}
+            label District / மாவட்டம்
+          .input-field.col.s6
+            input(id="pincode" type="number" ng-model="newTemple.temple.pincode")
+            label(for="pincode") Pincode / அஞ்சல் குறியீடு
+        .row
+          .input-field.col.s6
+            input(id="latitude" type="number" ng-model="newTemple.temple.latitude")
+            label(for="latitude") Latitude / அட்சரேகை
+          .input-field.col.s6
+            input(id="longitude" type="number" ng-model="newTemple.temple.longitude")
+            label(for="longitude") Longitude / தீர்க்கரேகை
         .row.center-align
-          button.btn.waves-effect.waves-light(type="submit" name="action" ng-click="newTemple.submit()") அனுப்பு
+          .preloader-wrapper.big(ng-class="{active: newTemple.isSpinner}")
+            .spinner-layer.spinner-blue-only
+              .circle-clipper.left
+                .circle
+              .gap-patch
+                .circle
+              .circle-clipper.right
+                .circle
+          button.btn.waves-effect.waves-light(type="submit" name="action" ng-click="newTemple.submit()" ng-show="!newTemple.isSpinner") அனுப்பு
             i.material-icons.right send
