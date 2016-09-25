@@ -1,5 +1,5 @@
 export class NewTempleController {
-  constructor($timeout, $http, appConstants, ezfb) {
+  constructor($timeout, $http, appConstants, ezfb, $state) {
     'ngInject';
 
     let vm = this;
@@ -7,6 +7,7 @@ export class NewTempleController {
     vm.$http = $http;
     vm.appConstants = appConstants;
     vm.ezfb = ezfb;
+    vm.$state = $state;
 
     vm.tamilMonths = ["", "சித்திரை", "வைகாசி", "ஆனி", "ஆடி", "ஆவணி", "புரட்டாசி", "ஐப்பசி", "கார்த்திகை",
       "மார்கழி", "தை", "மாசி", "பங்குனி"
@@ -52,8 +53,8 @@ export class NewTempleController {
                   data: data
                 };
               }
-            }).then(function(response) {
-              console.log(response);
+            }).then(function() {
+              vm.$state.go('home.temples');
             }, function(error) {
               console.log(error);
             });
