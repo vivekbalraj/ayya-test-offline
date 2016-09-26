@@ -36,7 +36,7 @@ export class NewTempleController {
 
   submit() {
     let vm = this;
-    if (vm.temple.name) {
+    if (vm.temple.name && vm.temple.mobile_number) {
       vm.isSpinner = true;
 
       vm.ezfb.login(function() {

@@ -5,12 +5,16 @@
       form.col.s12
         .row
           .input-field.col.s12
-            input(id="first_name" type="text" class="validate" ng-model="newTemple.temple.name" required)
+            input.validate(id="first_name" type="text" ng-model="newTemple.temple.name" required)
             label(for="first_name") Temple Name / தாங்கல் பெயர் *
         .row
           .input-field.col.s12
             textarea.materialize-textarea(ng-model="newTemple.temple.information")
             label Information / தகவல்
+        .row
+          .input-field.col.s12
+            input.validate(id="mobile" type="text" required ng-model="newTemple.temple.mobile_number")
+            label(for="mobile") Mobile Number / மொபைல் எண் *
         .row
           .input-field.col.s6
             input(id="founded" type="number" class="validate" min="1800" max="2016" ng-model="newTemple.temple.founded_at")
