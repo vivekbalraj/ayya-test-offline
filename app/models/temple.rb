@@ -49,7 +49,7 @@ class Temple < ActiveRecord::Base
   def create_published_activity
     self.create_activity :published if (self.is_published_changed? && self.is_published == true)
     self.create_activity :updated if (self.is_published == true && !self.views_changed?)
-    TemplePublishedNotifier.send_temple_email(self).deliver if (self.is_published_changed? && self.is_published == true && self.contact_email.present?)
+    TemplePublishedNotifier.send_temple_published(self).deliver if (self.is_published_changed? && self.is_published == true && self.contact_email.present?)
   end
 
   def viewed
