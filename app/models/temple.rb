@@ -40,7 +40,7 @@ class Temple < ActiveRecord::Base
     thumb = $redis.get("images_thumb"+id.to_s)
   end
 
-  after_save :clear_cache, :create_published_activity
+  after_save :clear_cache, :create_published_activity, :send_published_notification, :facebook_page_post
 
   def clear_cache
     $redis.del("images"+id.to_s)
@@ -49,7 +49,20 @@ class Temple < ActiveRecord::Base
   def create_published_activity
     self.create_activity :published if (self.is_published_changed? && self.is_published == true)
     self.create_activity :updated if (self.is_published == true && !self.views_changed?)
+  end
+
+  def send_published_notification
     TemplePublishedNotifier.send_temple_published(self).deliver if (self.is_published_changed? && self.is_published == true && self.contact_email.present?)
+  end
+
+  def facebook_page_post
+    if self.is_published_changed? && self.is_published == true
+      @user = Koala::Facebook::API.new("EAACEdEose0cBANVQYHKtF07GlQe8vj5YYKFbKRh7SpUPOqNne4zZBHScFYuv2NAuZA8rZBuc98bpQAtxJHHCODUjFNsEBceMy53TilRA0uMZBdfng8YGYZBGZAn9h0ubt9clLE3m27W6cSqLpc1gJGwLXU3vONDR5ZBfRQsR88ULwZDZD")
+      pages = @user.get_connections("me", "accounts")
+      page_token = @user.get_page_access_token("ayyapathi")
+      @page=Koala::Facebook::API.new(page_token)
+      @page.put_wall_post("புதிய நிழல்தாங்கல்: #{self.name} \n #{self.information}", {:name => "www.ayyapthi.com", :link => "http://www.ayyapathi.com/temples/#{self.id}"})
+    end
   end
 
   def viewed

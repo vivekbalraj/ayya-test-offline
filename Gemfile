@@ -13,6 +13,8 @@ gem 'devise'
 gem 'pickadate-rails'
 gem 'active_skin'
 
+gem 'koala', '~> 2.2'
+
 gem 'public_activity'
 
 gem 'grape'
