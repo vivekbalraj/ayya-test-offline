@@ -40,7 +40,7 @@ class Temple < ActiveRecord::Base
     thumb = $redis.get("images_thumb"+id.to_s)
   end
 
-  after_save :clear_cache, :create_published_activity, :send_published_notification, :facebook_page_post
+  after_save :clear_cache, :create_published_activity, :send_published_notification#, :facebook_page_post
 
   def clear_cache
     $redis.del("images"+id.to_s)
