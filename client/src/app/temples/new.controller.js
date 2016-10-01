@@ -38,14 +38,13 @@ export class NewTempleController {
     let vm = this;
     if (vm.temple.name && vm.temple.mobile_number) {
       vm.isSpinner = true;
-
       vm.ezfb.login(function() {
         vm.ezfb.api('/me?fields=id,name,email,birthday,gender', function(user) {
           if (user) {
             vm.temple.contact_person = user.name;
             vm.temple.contact_email = user.email;
             let payload = new FormData();
-            Object.keys((key) => {
+            Object.keys(vm.temple).forEach((key) => {
               payload.append(key, vm.temple[key]);
             });
             vm.$http({
