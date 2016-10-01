@@ -44,14 +44,17 @@ export class NewTempleController {
           if (user) {
             vm.temple.contact_person = user.name;
             vm.temple.contact_email = user.email;
+            let payload = new FormData();
+            Object.keys((key) => {
+              payload.append(key, vm.temple[key]);
+            });
             vm.$http({
               method: 'POST',
               url: vm.appConstants.server.url + 'temples',
-              data: vm.temple,
-              transformResponse: function(data) {
-                return {
-                  data: data
-                };
+              data: payload,
+              transformResponse: angular.identity,
+              headers: {
+                'Content-Type': undefined
               }
             }).then(function() {
               vm.isSpinner = false;
