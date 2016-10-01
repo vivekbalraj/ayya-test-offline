@@ -60,6 +60,25 @@
           .input-field.col.s6
             input(id="longitude" type="number" ng-model="newTemple.temple.longitude")
             label(for="longitude") Longitude / தீர்க்கரேகை
+        .row
+          .file-field.input-field
+            .btn
+              span Photo 1 / புகைப்படம் 1
+              input(type="file" accept="image/*" file-model='newTemple.temple.image1')
+            .file-path-wrapper
+              input.file-path.validate(type="text" placeholder="புகைப்படம் 1")
+          .file-field.input-field
+            .btn
+              span Photo 2 / புகைப்படம் 2
+              input(type="file" accept="image/*" file-model='newTemple.temple.image2')
+            .file-path-wrapper
+              input.file-path.validate(type="text" placeholder="புகைப்படம் 2")
+          .file-field.input-field
+            .btn
+              span Photo 3 / புகைப்படம் 3
+              input(type="file" accept="image/*" file-model='newTemple.temple.image3')
+            .file-path-wrapper
+              input.file-path.validate(type="text" placeholder="புகைப்படம் 3")
         .row.center-align
           .preloader-wrapper.big(ng-class="{active: newTemple.isSpinner}")
             .spinner-layer.spinner-blue-only

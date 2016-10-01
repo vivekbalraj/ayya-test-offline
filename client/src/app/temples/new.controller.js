@@ -56,8 +56,7 @@ export class NewTempleController {
             }).then(function() {
               vm.isSpinner = false;
               vm.$state.go('home.temples');
-            }, function(error) {
-              console.log(error);
+            }, function() {
               vm.isSpinner = false;
             });
             vm.$http({

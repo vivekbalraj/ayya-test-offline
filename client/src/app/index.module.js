@@ -11,7 +11,7 @@ import { NewTempleController } from './temples/new.controller';
 
 import { DataService } from './data/data.service';
 
-angular.module('ayya1008', ['ui.router', 'akoenig.deckgrid', 'ngMap', 'hm.readmore', 'rt.encodeuri', 'ezfb'])
+angular.module('ayya1008', ['ui.router', 'akoenig.deckgrid', 'ngMap', 'hm.readmore', 'rt.encodeuri', 'ezfb', 'file-model'])
   .config(config)
   .config(routerConfig)
   .constant('appConstants', constant())
