@@ -54,26 +54,30 @@ export class NewTempleController {
                 'Content-Type': undefined
               }
             }).then(function() {
-              vm.isSpinner = false;
-              vm.$state.go('home.temples');
+              vm.$http({
+                method: 'POST',
+                url: vm.appConstants.server.url + 'users/register',
+                data: {
+                  email: user.email,
+                  facebook_id: user.id,
+                  gender: user.gender,
+                  name: user.name,
+                  birthday: user.birthday
+                },
+                transformResponse: function(data) {
+                  return {
+                    data: data
+                  };
+                }
+              }).then(() => {
+                vm.isSpinner = false;
+                vm.$state.go('home.temples');
+              }, () => {
+                vm.isSpinner = false;
+                vm.$state.go('home.temples');
+              });
             }, function() {
               vm.isSpinner = false;
-            });
-            vm.$http({
-              method: 'POST',
-              url: vm.appConstants.server.url + 'users/register',
-              data: {
-                email: user.email,
-                facebook_id: user.id,
-                gender: user.gender,
-                name: user.name,
-                birthday: user.birthday
-              },
-              transformResponse: function(data) {
-                return {
-                  data: data
-                };
-              }
             });
           }
         });
