@@ -17,9 +17,7 @@ export class NewTempleController {
 
     vm.init();
 
-    vm.temple = {
-      cars: []
-    };
+    vm.temple = {};
   }
 
   init() {

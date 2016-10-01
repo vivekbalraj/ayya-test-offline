@@ -52,7 +52,7 @@ module API
         desc "create a temple"
         post do
           temple = Temple.create(name: params[:name], founded_at: params[:founded_at], book_month: params[:book_month], contact_person: params[:contact_person], mobile_number: params[:mobile_number], village: params[:village], taluk: params[:taluk], district: params[:district], latitude: params[:latitude], longitude: params[:longitude], pincode: params[:pincode], street_address: params[:street_address], information: params[:information], facebook_page_url: params[:facebook_page_url], priest_name: params[:priest_name], device_no: params[:device_no], contact_email: params[:contact_email])
-          temple.cars = Car.find(params[:cars])
+          temple.cars = Car.find(params[:cars]) if params[:cars].present?
           temple.img1 = ActionDispatch::Http::UploadedFile.new(params[:image1]) if params[:image1].present?
           temple.img2 = ActionDispatch::Http::UploadedFile.new(params[:image2]) if params[:image2].present?
           temple.img3 = ActionDispatch::Http::UploadedFile.new(params[:image3]) if params[:image3].present?
