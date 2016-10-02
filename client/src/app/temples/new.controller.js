@@ -49,7 +49,7 @@ export class NewTempleController {
               method: 'POST',
               url: vm.appConstants.server.url + 'temples',
               data: payload,
-              transformResponse: angular.identity,
+              // transformResponse: angular.identity,
               headers: {
                 'Content-Type': undefined
               }
