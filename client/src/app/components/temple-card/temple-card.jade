@@ -5,7 +5,7 @@
   .card-content
     p.line-clamp {{card.information}}
   .card-action
-    a(ui-sref="home.temples.detail({templeId: card.id})") கோவிலுக்கு செல்
+    a(ui-sref="home.temples.detail({templeId: card.id, slug: card.slug})") கோவிலுக்கு செல்
   .card-reveal
     span.card-title.grey-text.text-darken-4 {{card.name}}
       i.material-icons.right close

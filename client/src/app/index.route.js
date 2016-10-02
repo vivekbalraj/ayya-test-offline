@@ -26,7 +26,7 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
       templateUrl: 'app/temples/new.html'
     })
     .state('home.temples.detail', {
-      url: '/:templeId',
+      url: '/:templeId/:slug',
       templateUrl: 'app/temples/temple.html'
     })
     .state('home.map', {

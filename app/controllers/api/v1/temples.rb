@@ -6,7 +6,7 @@ module API
       resource :temples do
         desc "Return all temples"
         get "", root: :temples do
-          temples = Temple.select('id, name, information, temple_type, village, district, latitude, longitude, founded_at, country, state, taluk, pincode, street_address, is_primary_thangal, is_book_read, book_month, is_published, priest_name, facebook_page_url, img1_file_name, img2_file_name, img3_file_name, views').where(is_published: true).includes(:events, :cars).as_json(include: [:events, :cars], :methods => [:images, :thumb])
+          temples = Temple.select('id, name, information, temple_type, village, district, latitude, longitude, founded_at, country, state, taluk, pincode, street_address, is_primary_thangal, is_book_read, book_month, is_published, priest_name, facebook_page_url, img1_file_name, img2_file_name, img3_file_name, views, slug').where(is_published: true).includes(:events, :cars).as_json(include: [:events, :cars], :methods => [:images, :thumb])
         end
 
         desc "Return by temple types"
