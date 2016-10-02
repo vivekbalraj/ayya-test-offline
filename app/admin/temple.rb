@@ -34,6 +34,7 @@ ActiveAdmin.register Temple do
     f.semantic_errors
     f.inputs "Temple Details" do
       f.input :name
+      f.input :slug
       f.input :founded_at
       f.input :is_published
       f.input :is_primary_thangal
