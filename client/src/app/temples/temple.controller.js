@@ -31,7 +31,7 @@ export class TempleController {
 
   initMap() {
     let vm = this;
-    vm.NgMap.initMap("temple-map");
+    vm.NgMap.initMap('temple-map');
   }
 
 }

@@ -9,7 +9,7 @@ export class MainController {
     vm.isTemplesLoaded = false;
 
     $timeout(function() {
-      angular.element(".button-collapse").sideNav();
+      angular.element('.button-collapse').sideNav();
     }, 10);
 
     DataService.fetchTemples().then(temples => {

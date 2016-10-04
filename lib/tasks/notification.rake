@@ -1,7 +1,7 @@
 namespace :notification do
   desc "todays message"
   task send_message: :environment do
-    gcm = GCM.new("AIzaSyDi8ducYJNid4NQUKm04HzmDrdScGqO1NE")
+    gcm = GCM.new("AIzaSyC_17zkILbhr8WgQ9lsG7Mov1-oqhvNlVQ")
     registration_ids = Device.all().map(&:token)
     notification = Notification.today.where(is_published: false).first
     if (notification)
@@ -30,7 +30,7 @@ namespace :notification do
 
   desc "events happening today"
   task send_event: :environment do
-    gcm = GCM.new("AIzaSyDi8ducYJNid4NQUKm04HzmDrdScGqO1NE")
+    gcm = GCM.new("AIzaSyC_17zkILbhr8WgQ9lsG7Mov1-oqhvNlVQ")
     registration_ids = Device.all().map(&:token)
     event = Event.today.first
     if (event)

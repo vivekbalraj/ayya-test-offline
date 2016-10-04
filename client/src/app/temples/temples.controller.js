@@ -13,7 +13,7 @@ export class TemplesController {
 
   initMap() {
     let vm = this;
-    vm.NgMap.initMap("home-map");
+    vm.NgMap.initMap('home-map');
   }
 
 }
