@@ -20,6 +20,7 @@ namespace :notification do
         options[:data][:picture] = notification.picture.url
       end
       response = gcm.send_notification(registration_ids, options)
+      puts response
       notification.is_published = true;
       notification.save
       if (response[:not_registered_ids])
