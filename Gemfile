@@ -24,7 +24,7 @@ gem 'grape-active_model_serializers'
 
 gem 'omniauth-facebook'
 
-gem 'gcm'
+gem 'fcm'
 gem 'rails_12factor'
 gem 'paperclip', '~> 4.3'
 gem 'paperclip-dropbox', '>= 1.1.7'
