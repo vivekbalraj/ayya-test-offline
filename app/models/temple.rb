@@ -57,7 +57,8 @@ class Temple < ActiveRecord::Base
 
   def facebook_page_post
     if self.is_published_changed? && self.is_published == true
-      @user = Koala::Facebook::API.new("EAACEdEose0cBANVQYHKtF07GlQe8vj5YYKFbKRh7SpUPOqNne4zZBHScFYuv2NAuZA8rZBuc98bpQAtxJHHCODUjFNsEBceMy53TilRA0uMZBdfng8YGYZBGZAn9h0ubt9clLE3m27W6cSqLpc1gJGwLXU3vONDR5ZBfRQsR88ULwZDZD")
+      @oauth = Koala::Facebook::OAuth.new('185828048501024', '2be943ac29b87fcb31533f779f60499b', 'http://www.ayyapathi.com/callback')
+      @user = Koala::Facebook::API.new(@oauth.get_app_access_token)
       pages = @user.get_connections("me", "accounts")
       page_token = @user.get_page_access_token("ayyapathi")
       @page=Koala::Facebook::API.new(page_token)
