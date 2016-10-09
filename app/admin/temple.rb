@@ -20,11 +20,11 @@ ActiveAdmin.register Temple do
     id_column
     column :name
     column :village
-    column :taluk
     column :district
     column :latitude
     column :longitude
     column :views
+    column :slug
     column :is_published
     column :mobile_number
     actions
