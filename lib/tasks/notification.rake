@@ -10,7 +10,7 @@ namespace :notification do
         "delay_while_idle" => true,
         :data => {
           "message" => notification.message,
-          "summaryText" => notification.message,
+          "summaryText" => notification.message[0...50],
           "title" => notification.title
         }
       }
@@ -31,7 +31,7 @@ namespace :notification do
 
   desc "events happening today"
   task send_event: :environment do
-    gcm = GCM.new("AIzaSyAvt2J0-5KLDXD1G6mSQfLTstAQ3P7mc8E")
+    gcm = FCM.new("AIzaSyAvt2J0-5KLDXD1G6mSQfLTstAQ3P7mc8E")
     registration_ids = Device.all().map(&:token)
     event = Event.today.first
     if (event)
